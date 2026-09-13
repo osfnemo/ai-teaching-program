@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI for Small Business · Lesson 1: Your Toolkit</title>
+<meta name="description" content="Lesson 1 of an 8 week program: set up your AI toolkit, capture your use cases, and build your learning plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf7; --paper:#ffffff; --ink:#1c1b18; --ink-2:#4a4740; --ink-3:#7a766c;
+    --line:#e6e2d8; --line-2:#d3cec2; --accent:#1f5fa8; --accent-soft:#e8f0fa;
+    --ok:#1f7a4d; --ok-soft:#e6f4ec; --warn:#a8641f; --warn-soft:#fbf1e3; --note:#fff8dc;
+    --radius:10px; --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;margin:0 0 .5em;font-weight:600;letter-spacing:-.01em}
+  h1{font-size:2.6rem;font-weight:700}
+  h2{font-size:2rem;margin-top:0}
+  h3{font-size:1.35rem;margin-top:1.6em}
+  h4{font-size:1.1rem;font-family:var(--sans);font-weight:600;margin-top:1.4em}
+  p{margin:0 0 1em;max-width:68ch}
+  a{color:var(--accent)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:#f1efe8;padding:.1em .35em;border-radius:4px}
+  pre{background:#f1efe8;padding:1em 1.2em;border-radius:var(--radius);overflow-x:auto;font-size:.9rem;line-height:1.5;white-space:pre-wrap}
+  ul,ol{padding-left:1.4em;max-width:68ch}
+  li{margin-bottom:.35em}
+  hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+  .muted{color:var(--ink-3)}
+  .small{font-size:.9rem}
+
+  /* Layout */
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar-inner{max-width:1180px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.05rem;white-space:nowrap}
+  .brand span{color:var(--ink-3);font-weight:400}
+  .progress{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+  .progress-label{font-size:.85rem;color:var(--ink-2);white-space:nowrap;min-width:6.5rem}
+  .toggle{display:flex;align-items:center;gap:.45rem;font-size:.85rem;color:var(--ink-2);cursor:pointer;user-select:none}
+  .toggle input{width:1rem;height:1rem;margin:0}
+
+  .shell{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 6rem;display:grid;grid-template-columns:230px minmax(0,1fr);gap:3rem}
+  nav.side{position:sticky;top:5rem;align-self:start;font-size:.9rem}
+  nav.side ol{list-style:none;padding:0;margin:0}
+  nav.side li{margin:0}
+  nav.side a{display:flex;gap:.6rem;align-items:baseline;padding:.4rem .6rem;border-radius:6px;color:var(--ink-2);text-decoration:none;line-height:1.3}
+  nav.side a:hover{background:var(--accent-soft);color:var(--ink)}
+  nav.side a.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  nav.side a .n{font-variant-numeric:tabular-nums;color:var(--ink-3);min-width:1.4em;font-size:.8rem}
+  nav.side a.done .n{color:var(--ok)}
+  main{min-width:0}
+
+  section.step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:2.4rem 2.6rem;margin-bottom:2rem;scroll-margin-top:5.5rem}
+  .step-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600;margin-bottom:.6rem;font-family:var(--sans)}
+  .step-time{float:right;font-size:.8rem;color:var(--ink-3);border:1px solid var(--line);padding:.15rem .6rem;border-radius:99px;margin-left:1rem}
+  .lede{font-size:1.15rem;color:var(--ink-2);max-width:62ch}
+
+  /* Forms */
+  label.f{display:block;font-weight:600;font-size:.95rem;margin:1.2rem 0 .35rem}
+  label.f .hint{display:block;font-weight:400;color:var(--ink-3);font-size:.85rem;margin-top:.1rem}
+  input[type=text],input[type=email],input[type=number],input[type=date],textarea,select{
+    width:100%;font:inherit;font-size:1rem;padding:.65rem .8rem;border:1px solid var(--line-2);border-radius:8px;background:#fff;color:var(--ink)}
+  textarea{min-height:5.5rem;resize:vertical;line-height:1.5}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 1.5rem}
+  .scale{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.3rem}
+  .scale label{display:flex;flex-direction:column;align-items:center;gap:.2rem;font-size:.8rem;color:var(--ink-2);cursor:pointer;padding:.4rem .7rem;border:1px solid var(--line-2);border-radius:8px;background:#fff;min-width:3.6rem}
+  .scale label:has(input:checked){background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+  .scale input{margin:0}
+
+  /* Checklists */
+  .checklist{list-style:none;padding:0;margin:1rem 0;max-width:none}
+  .checklist li{display:grid;grid-template-columns:1.6rem 1fr;gap:.7rem;align-items:start;padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;margin-bottom:.5rem;background:#fff}
+  .checklist li:has(input:checked){background:var(--ok-soft);border-color:#bfe0cc}
+  .checklist li:has(input:checked) .ck-title{text-decoration:line-through;color:var(--ink-3)}
+  .checklist input[type=checkbox]{width:1.25rem;height:1.25rem;margin:.2rem 0 0;accent-color:var(--ok);cursor:pointer}
+  .ck-title{font-weight:600;display:block}
+  .ck-sub{display:block;color:var(--ink-2);font-size:.92rem;margin-top:.15rem}
+  .ck-sub ol,.ck-sub ul{margin:.4rem 0 0}
+  .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;list-style:none;padding:0;margin:1rem 0;max-width:none}
+  .learn-grid li{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:.95rem}
+  .learn-grid li:has(input:checked){background:var(--accent-soft);border-color:#b9cdea}
+  .learn-grid input{width:1.1rem;height:1.1rem;margin:.25rem 0 0;accent-color:var(--accent)}
+  .learn-grid .wk{font-size:.75rem;color:var(--ink-3);display:block}
+
+  /* Callouts */
+  .callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:1rem 1.2rem;border-radius:0 10px 10px 0;margin:1.4rem 0;max-width:70ch}
+  .callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .callout.ok{border-color:var(--ok);background:var(--ok-soft)}
+  .callout p:last-child{margin-bottom:0}
+  .note{background:var(--note);border:1px dashed #d9c76a;border-radius:10px;padding:.9rem 1.1rem;margin:1.2rem 0;font-size:.92rem;display:none}
+  .note b{color:#7a5f00}
+  body.facilitator .note{display:block}
+  .glossary{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.5rem;margin:1rem 0;max-width:none}
+  .glossary dt{font-weight:600;margin-top:.5rem}
+  .glossary dd{margin:0;color:var(--ink-2);font-size:.95rem}
+
+  table{border-collapse:collapse;width:100%;font-size:.95rem;margin:1rem 0}
+  th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-weight:600;background:#f6f4ee}
+  .tablewrap{overflow-x:auto}
+
+  /* Diagram */
+  .diagram{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.8rem;align-items:center;margin:1.4rem 0;max-width:none}
+  .diagram .box{border:1px solid var(--line-2);border-radius:10px;padding:.9rem 1rem;background:#fff;text-align:center}
+  .diagram .box b{display:block;font-family:var(--serif);font-size:1.1rem}
+  .diagram .box span{font-size:.85rem;color:var(--ink-2)}
+  .diagram .arrow{color:var(--ink-3);font-size:1.4rem}
+
+  /* Buttons */
+  .btn{font:inherit;font-size:.95rem;font-weight:600;padding:.6rem 1.1rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.secondary{background:#fff;color:var(--accent)}
+  .btn.ghost{background:transparent;border-color:var(--line-2);color:var(--ink-2)}
+  .btn.danger{background:#fff;border-color:#e0b4b4;color:#a03030}
+  .btn.big{font-size:1.1rem;padding:.9rem 1.6rem}
+  .btnrow{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.2rem 0}
+
+  /* Use case cards */
+  .cards{display:grid;gap:1rem;margin:1rem 0}
+  .card{border:1px solid var(--line-2);border-radius:12px;padding:1.2rem 1.4rem;background:#fff;position:relative}
+  .card .card-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .card .card-head h4{margin:0}
+  .card .remove{background:none;border:0;color:var(--ink-3);cursor:pointer;font-size:.85rem;text-decoration:underline}
+  .card .score{font-size:.8rem;color:var(--ink-3)}
+  .ranked{margin:1rem 0;padding:0;list-style:none;max-width:none}
+  .ranked li{display:grid;grid-template-columns:2rem 1fr auto;gap:.8rem;padding:.6rem .8rem;border-bottom:1px solid var(--line);align-items:baseline}
+  .ranked .rank{font-family:var(--serif);font-size:1.3rem;color:var(--accent)}
+  .ranked .why{font-size:.85rem;color:var(--ink-3)}
+
+  /* Generated output */
+  .gen{position:relative}
+  .gen textarea{min-height:14rem;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem}
+
+  /* Summary */
+  #summary .sum-block{border:1px solid var(--line);border-radius:10px;padding:1rem 1.3rem;margin:.9rem 0;background:#fff}
+  #summary .sum-block h3{margin-top:0;font-size:1.15rem}
+  #summary .kv{display:grid;grid-template-columns:200px 1fr;gap:.3rem 1rem;font-size:.95rem}
+  #summary .kv dt{color:var(--ink-3)}
+  #summary .kv dd{margin:0}
+  #summary ul{margin:.3rem 0}
+  .stamp{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;border-bottom:2px solid var(--ink);padding-bottom:.8rem;margin-bottom:1.4rem}
+  .stamp .big-name{font-family:var(--serif);font-size:1.8rem;font-weight:700}
+  .stamp .date{text-align:right;color:var(--ink-2);font-size:.95rem}
+  .tick{color:var(--ok);font-weight:700}
+  .cross{color:var(--ink-3)}
+
+  .footer-actions{position:sticky;bottom:0;background:rgba(251,250,247,.95);border-top:1px solid var(--line);padding:.7rem 1.5rem;display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;backdrop-filter:blur(8px);font-size:.85rem;align-items:center;color:var(--ink-3)}
+
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;gap:1rem;padding:1rem}
+    nav.side{position:static;display:flex;overflow-x:auto;gap:.3rem;padding-bottom:.5rem}
+    nav.side ol{display:flex;gap:.3rem}
+    nav.side a{white-space:nowrap}
+    section.step{padding:1.5rem 1.2rem}
+    .row,.row3,.learn-grid,.glossary{grid-template-columns:1fr}
+    .diagram{grid-template-columns:1fr}
+    .diagram .arrow{transform:rotate(90deg);text-align:center}
+    body{font-size:17px}
+    h1{font-size:2rem}
+  }
+
+  /* Print: only the summary, as a clean record */
+  @media print{
+    @page{margin:18mm 16mm}
+    body{background:#fff;font-size:11.5pt;color:#000}
+    .topbar,nav.side,.footer-actions,.btn,.btnrow,.note,.no-print{display:none !important}
+    .shell{display:block;padding:0;max-width:none}
+    section.step{display:none;border:0;padding:0;margin:0}
+    body.print-summary section#summary{display:block}
+    #summary .sum-block{break-inside:avoid;border-color:#bbb}
+    a{color:#000;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">AI for Small Business <span>· Lesson 1 of 8</span></div>
+    <div class="progress" title="Progress"><i id="progressBar"></i></div>
+    <div class="progress-label" id="progressLabel">0% complete</div>
+    <label class="toggle"><input type="checkbox" id="facilitatorToggle"> Facilitator notes</label>
+  </div>
+</div>
+
+<div class="shell">
+<nav class="side" aria-label="Lesson sections">
+  <ol id="sideNav">
+    <li><a href="#s0"><span class="n">0</span>Welcome</a></li>
+    <li><a href="#s1"><span class="n">1</span>Your business</a></li>
+    <li><a href="#s2"><span class="n">2</span>What an AI harness is</a></li>
+    <li><a href="#s3"><span class="n">3</span>Set up Claude</a></li>
+    <li><a href="#s4"><span class="n">4</span>Connectors: Google Drive</a></li>
+    <li><a href="#s5"><span class="n">5</span>Projects and instructions</a></li>
+    <li><a href="#s6"><span class="n">6</span>Choosing model and effort</a></li>
+    <li><a href="#s7"><span class="n">7</span>Publishing: GitHub and Vercel</a></li>
+    <li><a href="#s8"><span class="n">8</span>Your use cases</a></li>
+    <li><a href="#s9"><span class="n">9</span>What you want to learn</a></li>
+    <li><a href="#s10"><span class="n">10</span>Outcomes</a></li>
+    <li><a href="#s11"><span class="n">11</span>Safety and privacy</a></li>
+    <li><a href="#s12"><span class="n">12</span>Homework</a></li>
+    <li><a href="#summary"><span class="n">✓</span>Complete Lesson 1</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 0 WELCOME -->
+<section class="step" id="s0" data-step="0">
+  <span class="step-time">10 min</span>
+  <div class="step-kicker">Lesson 1 · Your toolkit</div>
+  <h1>Setting up AI for your business</h1>
+  <p class="lede">Over eight weeks you will go from "I have heard of ChatGPT" to running parts of your business with AI tools you set up and control yourself. Today is about getting the tools in place and deciding, together, what we will build for you.</p>
+
+  <div class="note"><b>Facilitator (0:00 to 0:10):</b> Introduce yourself briefly. Explain that this page is theirs: they fill it in as we go, it saves itself in their browser, and at the end it exports a dated PDF record. Ask them to open it on their own laptop now. Set the tone: no jargon without a definition, no question is too basic, and we stop for a break at the hour.</div>
+
+  <h3>How the eight weeks work</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:5rem">Week</th><th>Theme</th><th>You leave with</th></tr>
+    <tr><td>1</td><td>Your toolkit (today)</td><td>Accounts set up, first connector working, your learning plan</td></tr>
+    <tr><td>2</td><td>Talking to AI well</td><td>Prompting habits, your first saved project with instructions</td></tr>
+    <tr><td>3</td><td>Your documents and data</td><td>AI reading and writing your Drive files, templates for your admin</td></tr>
+    <tr><td>4</td><td>Content and media</td><td>Images, voice and video for marketing, with a repeatable process</td></tr>
+    <tr><td>5</td><td>Automating a routine task</td><td>One real task running with less of your time</td></tr>
+    <tr><td>6</td><td>Building a simple tool or site</td><td>A live web page or internal tool, published on Vercel</td></tr>
+    <tr><td>7</td><td>Customers and communication</td><td>Email, quotes, follow-ups and support with AI assistance</td></tr>
+    <tr><td>8</td><td>Your AI operating plan</td><td>A written playbook for how AI runs in your business</td></tr>
+  </table></div>
+
+  <h3>Before we start</h3>
+  <ul class="checklist">
+    <li><input type="checkbox" id="pre1"><label for="pre1"><span class="ck-title">Laptop with a modern browser (Chrome, Edge or Safari)</span></label></li>
+    <li><input type="checkbox" id="pre2"><label for="pre2"><span class="ck-title">Phone nearby for verification codes</span><span class="ck-sub">Most sign-ups will text or email you a code.</span></label></li>
+    <li><input type="checkbox" id="pre3"><label for="pre3"><span class="ck-title">You know your Google account login</span><span class="ck-sub">We will connect Google Drive today. If your business uses a Google Workspace account, use that one.</span></label></li>
+    <li><input type="checkbox" id="pre4"><label for="pre4"><span class="ck-title">A card handy in case you choose a paid plan</span><span class="ck-sub">Optional. The free tier works for today.</span></label></li>
+  </ul>
+
+  <div class="row">
+    <div><label class="f" for="name">Your name</label><input type="text" id="name" placeholder="First and last name"></div>
+    <div><label class="f" for="email">Email</label><input type="email" id="email" placeholder="you@example.com"></div>
+  </div>
+  <div class="row">
+    <div><label class="f" for="lessonDate">Lesson date</label><input type="date" id="lessonDate"></div>
+    <div><label class="f" for="facilitator">Facilitator</label><input type="text" id="facilitator" placeholder="Who is teaching"></div>
+  </div>
+</section>
+
+<!-- 1 YOUR BUSINESS -->
+<section class="step" id="s1" data-step="1">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 1</div>
+  <h2>Your business</h2>
+  <p class="lede">Everything we set up today should point at real work you do. So before any tools, tell us about the business.</p>
+  <div class="note"><b>Facilitator (0:10 to 0:25):</b> Give them five quiet minutes to type, then talk through each person's answers out loud. Listen for the tasks they say with a sigh. Those become the use cases in Section 8. Write down anything they mention that is repetitive, text heavy, or done weekly.</div>
+
+  <div class="row">
+    <div><label class="f" for="bizName">Business name</label><input type="text" id="bizName"></div>
+    <div><label class="f" for="bizRole">Your role</label><input type="text" id="bizRole" placeholder="Owner, director, manager..."></div>
+  </div>
+  <label class="f" for="bizWhat">What does the business do? <span class="hint">One or two sentences, as you would say it to a customer.</span></label>
+  <textarea id="bizWhat"></textarea>
+  <div class="row3">
+    <div><label class="f" for="bizTeam">Team size</label><select id="bizTeam"><option value="">Choose</option><option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 to 50</option><option>50+</option></select></div>
+    <div><label class="f" for="bizCustomers">Who are your customers?</label><input type="text" id="bizCustomers" placeholder="e.g. local families, other businesses"></div>
+    <div><label class="f" for="bizYears">Years running</label><input type="text" id="bizYears"></div>
+  </div>
+  <label class="f" for="bizTime">Where does your week actually go? <span class="hint">List the tasks that eat the most time. Be honest about the boring ones.</span></label>
+  <textarea id="bizTime"></textarea>
+  <label class="f" for="bizPain">What do you wish you never had to do again?</label>
+  <textarea id="bizPain"></textarea>
+  <label class="f" for="bizTools">Tools you already use <span class="hint">Email, accounting, booking, spreadsheets, social media, website platform, anything.</span></label>
+  <textarea id="bizTools"></textarea>
+  <label class="f" for="bizAI">Have you used any AI tools before? What happened?</label>
+  <textarea id="bizAI"></textarea>
+  <label class="f">How comfortable are you with technology? <span class="hint">1 is "I call someone", 5 is "I set up my own website".</span></label>
+  <div class="scale" data-name="techComfort">
+    <label><input type="radio" name="techComfort" value="1">1<small>Nervous</small></label>
+    <label><input type="radio" name="techComfort" value="2">2</label>
+    <label><input type="radio" name="techComfort" value="3">3<small>Fine</small></label>
+    <label><input type="radio" name="techComfort" value="4">4</label>
+    <label><input type="radio" name="techComfort" value="5">5<small>Confident</small></label>
+  </div>
+</section>
+
+<!-- 2 HARNESS -->
+<section class="step" id="s2" data-step="2">
+  <span class="step-time">10 min</span>
+  <div class="step-kicker">Section 2</div>
+  <h2>What an AI harness is</h2>
+  <p class="lede">The model is the brain. The harness is the body: the app, the memory, the tools, and the permissions that let the brain actually do things for you.</p>
+  <div class="note"><b>Facilitator (0:25 to 0:35):</b> Keep this conceptual and short. The point is to make "Claude", "Claude Code" and "Codex" stop sounding like different products and start sounding like different bodies for the same kind of brain. Show the desktop app live for 60 seconds. Do not open a terminal today.</div>
+
+  <div class="diagram">
+    <div class="box"><b>The model</b><span>Claude, GPT, Gemini. The thing that reads, reasons and writes. On its own it can only talk.</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>The harness</b><span>The app around the model. Gives it memory, files, tools, and rules about what it may do.</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>Your world</b><span>Your Drive, your email, your website, your spreadsheets. Reached through connectors.</span></div>
+  </div>
+
+  <h3>The harnesses you will hear about</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Name</th><th>Made by</th><th>What it is good for</th><th>We use it</th></tr>
+    <tr><td><b>Claude</b> (web and desktop app)</td><td>Anthropic</td><td>Everyday work: writing, analysis, reading your files, chatting through problems. Projects keep context. Connectors reach your tools.</td><td>Yes, our main tool</td></tr>
+    <tr><td><b>Claude Code</b></td><td>Anthropic</td><td>Claude that can work inside a folder on your computer: build websites, run scripts, organise files. Lives in the desktop app's Code tab or a terminal.</td><td>Week 5 and 6</td></tr>
+    <tr><td><b>Codex</b></td><td>OpenAI</td><td>OpenAI's equivalent of Claude Code. Same idea, different model. Fine if you prefer ChatGPT.</td><td>Alternative</td></tr>
+    <tr><td><b>ChatGPT</b></td><td>OpenAI</td><td>OpenAI's everyday app. Comparable to the Claude app.</td><td>Alternative</td></tr>
+  </table></div>
+
+  <div class="callout"><p><b>Why we teach on Claude.</b> One tool learned deeply beats four learned shallowly. Claude's app, projects, connectors and Claude Code form one path from "chat" to "it builds things for me" with the same account. Everything you learn transfers if you later switch.</p></div>
+
+  <h3>Words you will hear today</h3>
+  <dl class="glossary">
+    <dt>Model</dt><dd>The AI itself. Different models trade speed and cost against depth of reasoning.</dd>
+    <dt>Harness</dt><dd>The app that wraps the model and gives it tools and memory.</dd>
+    <dt>Connector</dt><dd>A permission that lets the AI read from or act in another service, such as Google Drive.</dd>
+    <dt>Project</dt><dd>A folder inside Claude with its own standing instructions and reference files.</dd>
+    <dt>System prompt</dt><dd>Standing instructions the AI reads before every conversation. In Claude, "project instructions".</dd>
+    <dt>Context</dt><dd>Everything the AI can see right now: your message, files, instructions, earlier turns.</dd>
+    <dt>Effort / thinking</dt><dd>How long the model reasons before answering. More is slower, more careful, and costs more.</dd>
+    <dt>Deploy</dt><dd>Putting a website or tool online so others can use it.</dd>
+  </dl>
+  <label class="f" for="harnessQ">Write, in your own words, the difference between the model and the harness.</label>
+  <textarea id="harnessQ"></textarea>
+</section>
+
+<!-- 3 SET UP CLAUDE -->
+<section class="step" id="s3" data-step="3">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 3</div>
+  <h2>Set up Claude</h2>
+  <p class="lede">Account, plan, desktop app. Tick each one as you finish it.</p>
+  <div class="note"><b>Facilitator (0:35 to 0:50):</b> Walk them through it on the projector, one step at a time, then wait until both have ticked. The plan decision is the only real choice: recommend Pro for anyone who will use it daily. Free is fine for today. If someone gets stuck on verification, move on and come back.</div>
+
+  <ul class="checklist">
+    <li><input type="checkbox" id="c3a"><label for="c3a"><span class="ck-title">Create your Claude account</span><span class="ck-sub">Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, choose "Continue with Google" using the same Google account you will connect Drive with. Confirm the code sent to your phone or email.</span></label></li>
+    <li><input type="checkbox" id="c3b"><label for="c3b"><span class="ck-title">Choose a plan</span><span class="ck-sub">
+      <b>Free</b>: enough for today and light use, limited daily messages and no access to the strongest models.<br>
+      <b>Pro</b> (about $20 a month): daily use, projects, connectors, Claude Code, the full model line-up. Our recommendation for this course.<br>
+      <b>Max</b> (from about $100 a month): for heavy daily use with Claude Code. Not needed yet.<br>
+      Check current prices at <a href="https://claude.ai/pricing" target="_blank" rel="noopener">claude.ai/pricing</a>.</span></label></li>
+    <li><input type="checkbox" id="c3c"><label for="c3c"><span class="ck-title">Install the desktop app</span><span class="ck-sub">Download from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (Mac or Windows). Sign in. The desktop app is where Claude Code lives later, so install it now.</span></label></li>
+    <li><input type="checkbox" id="c3d"><label for="c3d"><span class="ck-title">Send your first message</span><span class="ck-sub">Type: <code>I run a [type of business]. Ask me five questions that would help you understand how I could save time with AI.</code> Answer them. Notice how it remembers within the conversation.</span></label></li>
+    <li><input type="checkbox" id="c3e"><label for="c3e"><span class="ck-title">Find Settings</span><span class="ck-sub">Click your initials, bottom left. Settings is where Connectors, Profile and Memory live. You will come back here a lot.</span></label></li>
+  </ul>
+
+  <div class="row">
+    <div><label class="f" for="planChoice">Plan you chose</label><select id="planChoice"><option value="">Choose</option><option>Free (for now)</option><option>Pro</option><option>Max</option><option>Team plan through work</option></select></div>
+    <div><label class="f" for="harnessChoice">Main harness</label><select id="harnessChoice"><option value="">Choose</option><option>Claude</option><option>Codex / ChatGPT</option><option>Both</option></select></div>
+  </div>
+  <label class="f" for="firstChat">What did Claude ask you in your first conversation? <span class="hint">One line. Anything surprising?</span></label>
+  <textarea id="firstChat"></textarea>
+</section>
+
+<!-- 4 CONNECTORS -->
+<section class="step" id="s4" data-step="4">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 4</div>
+  <h2>Connectors: Google Drive</h2>
+  <p class="lede">A connector is a permission slip. You tell Claude "you may look at my Drive", and from then on you can ask questions about your own documents without copying and pasting.</p>
+  <div class="note"><b>Facilitator (0:50 to 1:05, then BREAK at 1:05):</b> This is the moment of the lesson. Get one real file of theirs summarised by Claude before the break. Point out the Google consent screen and explain what "read only" means. If Drive is slow to index, ask them to search for a file by name first. After the break resume at Section 5.</div>
+
+  <h3>What a connector actually does</h3>
+  <ul>
+    <li>You approve a link between Claude and a service (Google Drive, Gmail, Calendar, Slack, and many more).</li>
+    <li>Claude can then search and read from that service when you ask, inside a conversation.</li>
+    <li>You can disconnect it at any time in Settings. Most connectors are read-only unless you allow more.</li>
+    <li>Claude does not sit reading your Drive in the background. It looks only when you ask a question that needs it.</li>
+  </ul>
+
+  <ul class="checklist">
+    <li><input type="checkbox" id="c4a"><label for="c4a"><span class="ck-title">Open Settings, then Connectors</span><span class="ck-sub">Initials bottom left, Settings, Connectors. You will see a list of services.</span></label></li>
+    <li><input type="checkbox" id="c4b"><label for="c4b"><span class="ck-title">Connect Google Drive</span><span class="ck-sub">Click Connect next to Google Drive. A Google window opens. Pick the account, review what it asks for, click Allow.</span></label></li>
+    <li><input type="checkbox" id="c4c"><label for="c4c"><span class="ck-title">Turn it on in a chat</span><span class="ck-sub">Start a new chat. Click the tools or "+" button near the message box and make sure Google Drive is enabled for this chat.</span></label></li>
+    <li><input type="checkbox" id="c4d"><label for="c4d"><span class="ck-title">Test it with a real file</span><span class="ck-sub">Ask: <code>Search my Google Drive for a file called [name] and give me a three line summary.</code> Then: <code>What questions would a new customer have after reading it?</code></span></label></li>
+    <li><input type="checkbox" id="c4e"><label for="c4e"><span class="ck-title">Look at what else you could connect</span><span class="ck-sub">Scroll the Connectors list. Note anything you already use (Gmail, Calendar, Slack, Notion, Canva, Stripe...). We connect these in later weeks.</span></label></li>
+  </ul>
+
+  <label class="f" for="driveFile">Which file did you test with, and was the summary right?</label>
+  <textarea id="driveFile"></textarea>
+  <label class="f" for="otherConnectors">Other services you use that appear in the Connectors list</label>
+  <input type="text" id="otherConnectors" placeholder="e.g. Gmail, Calendar, Canva, Stripe">
+  <div class="callout warn"><p><b>Take care.</b> Connecting Drive means anything in that Drive can be read into a conversation if you ask. If your Drive holds client records, payroll or contracts, we will talk in Section 11 about what to ask and what to keep out.</p></div>
+</section>
+
+<!-- 5 PROJECTS -->
+<section class="step" id="s5" data-step="5">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 5</div>
+  <h2>Projects and standing instructions</h2>
+  <p class="lede">A project is a folder inside Claude that remembers who you are. Its instructions are read before every conversation, so you stop repeating yourself. This is what people mean by "tuning the system prompt".</p>
+  <div class="note"><b>Facilitator (1:15 to 1:30):</b> Use the generator below. It drafts project instructions from their Section 1 answers. Have them copy it into a new project, then ask the same question they asked in Section 3 and compare the answers side by side. That contrast teaches the value of instructions better than any explanation.</div>
+
+  <h3>What good instructions contain</h3>
+  <ol>
+    <li><b>Who you are</b>: the business, what it sells, who buys it.</li>
+    <li><b>How you sound</b>: tone, words you use, words you never use.</li>
+    <li><b>What you want by default</b>: length, format, plain English, ask before assuming.</li>
+    <li><b>What to avoid</b>: no invented facts, no legal or tax advice presented as certain, no jargon.</li>
+    <li><b>Reference files</b>: your price list, a good past email, your services page. Add these to the project's knowledge.</li>
+  </ol>
+
+  <div class="row">
+    <div><label class="f" for="tone">How should Claude sound when writing for you? <span class="hint">e.g. warm, plain, professional, a bit cheeky</span></label><input type="text" id="tone"></div>
+    <div><label class="f" for="avoidWords">Words or phrases to avoid</label><input type="text" id="avoidWords" placeholder="e.g. 'synergy', exclamation marks, corporate speak"></div>
+  </div>
+  <label class="f" for="defaults">Default preferences <span class="hint">Short answers? Bullet points? Australian spelling? Always ask before assuming?</span></label>
+  <input type="text" id="defaults" placeholder="e.g. UK spelling, keep emails under 150 words, ask if unsure">
+
+  <div class="btnrow"><button class="btn" id="genInstructions">Draft my project instructions</button><button class="btn secondary" id="copyInstructions">Copy to clipboard</button></div>
+  <div class="gen"><textarea id="instructions" placeholder="Click 'Draft my project instructions'. Edit freely, then paste into your Claude project."></textarea></div>
+
+  <ul class="checklist">
+    <li><input type="checkbox" id="c5a"><label for="c5a"><span class="ck-title">Create a project</span><span class="ck-sub">In Claude, click Projects in the sidebar, then New project. Name it after your business.</span></label></li>
+    <li><input type="checkbox" id="c5b"><label for="c5b"><span class="ck-title">Paste your instructions</span><span class="ck-sub">Open the project, click Set project instructions (or the instructions panel on the right), paste, save.</span></label></li>
+    <li><input type="checkbox" id="c5c"><label for="c5c"><span class="ck-title">Add one reference file</span><span class="ck-sub">Your services list, price list or "about us" text. Drag it into the project knowledge area.</span></label></li>
+    <li><input type="checkbox" id="c5d"><label for="c5d"><span class="ck-title">Test the difference</span><span class="ck-sub">In the project, ask: <code>Write a short reply to a customer asking whether we can do a rush job next week.</code> Compare with the same question in a plain chat.</span></label></li>
+  </ul>
+  <label class="f" for="projectName">Name of the project you created</label>
+  <input type="text" id="projectName">
+</section>
+
+<!-- 6 MODEL AND EFFORT -->
+<section class="step" id="s6" data-step="6">
+  <span class="step-time">10 min</span>
+  <div class="step-kicker">Section 6</div>
+  <h2>Choosing a model and how hard it thinks</h2>
+  <p class="lede">You do not need the strongest model for everything. Match the tool to the job, the way you would not hire a barrister to proofread a flyer.</p>
+  <div class="note"><b>Facilitator (1:30 to 1:40):</b> Show the model picker at the top of a chat and the extended thinking toggle. Rule of thumb for them: Sonnet as the daily default, step up to Opus or Fable when the answer matters or the task is long and messy, step down to Haiku for quick reformatting. Do not go deeper than this today.</div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Model</th><th>Think of it as</th><th>Use it for</th></tr>
+    <tr><td><b>Haiku</b></td><td>Fast assistant</td><td>Quick rewrites, summaries, sorting lists, simple questions. Cheapest and fastest.</td></tr>
+    <tr><td><b>Sonnet</b></td><td>Capable colleague</td><td>Everyday writing, emails, planning, analysis. <b>Your default.</b></td></tr>
+    <tr><td><b>Opus</b></td><td>Senior specialist</td><td>Long documents, tricky decisions, multi-step research, anything you would double-check with an expert.</td></tr>
+    <tr><td><b>Fable</b></td><td>The best available</td><td>Hardest problems, building software with Claude Code, work where mistakes are expensive.</td></tr>
+  </table></div>
+
+  <h3>Effort and extended thinking</h3>
+  <p>Most harnesses let you choose how long the model reasons before it answers. Low effort is instant and fine for simple asks. High effort or "extended thinking" makes the model plan and check itself. It is slower and uses more of your allowance, so save it for tasks where being right matters more than being quick.</p>
+
+  <div class="callout ok"><p><b>Simple rule:</b> start with Sonnet and normal effort. If the answer is shallow or wrong, step up one level and ask again. If it is over-long and slow for a trivial task, step down.</p></div>
+
+  <h3>Decide for your own tasks</h3>
+  <p class="small muted">Pick a model and effort for each. There is no single right answer, the point is to practise the judgement.</p>
+  <div class="tablewrap"><table id="modelQuiz">
+    <tr><th>Task</th><th>Model</th><th>Effort</th></tr>
+    <tr><td>Reply to a routine customer email</td><td><select data-key="mq1m"><option value="">Choose</option><option>Haiku</option><option>Sonnet</option><option>Opus</option><option>Fable</option></select></td><td><select data-key="mq1e"><option value="">Choose</option><option>Low</option><option>Normal</option><option>High</option></select></td></tr>
+    <tr><td>Draft a quote for a large new client</td><td><select data-key="mq2m"><option value="">Choose</option><option>Haiku</option><option>Sonnet</option><option>Opus</option><option>Fable</option></select></td><td><select data-key="mq2e"><option value="">Choose</option><option>Low</option><option>Normal</option><option>High</option></select></td></tr>
+    <tr><td>Tidy a messy spreadsheet of contacts</td><td><select data-key="mq3m"><option value="">Choose</option><option>Haiku</option><option>Sonnet</option><option>Opus</option><option>Fable</option></select></td><td><select data-key="mq3e"><option value="">Choose</option><option>Low</option><option>Normal</option><option>High</option></select></td></tr>
+    <tr><td>Review a supplier contract for risks</td><td><select data-key="mq4m"><option value="">Choose</option><option>Haiku</option><option>Sonnet</option><option>Opus</option><option>Fable</option></select></td><td><select data-key="mq4e"><option value="">Choose</option><option>Low</option><option>Normal</option><option>High</option></select></td></tr>
+  </table></div>
+  <label class="f" for="defaultModel">Your default model and effort from now on</label>
+  <input type="text" id="defaultModel" placeholder="e.g. Sonnet, normal effort. Opus with thinking for contracts and quotes.">
+</section>
+
+<!-- 7 PUBLISHING -->
+<section class="step" id="s7" data-step="7">
+  <span class="step-time">10 min</span>
+  <div class="step-kicker">Section 7</div>
+  <h2>Publishing: GitHub and Vercel</h2>
+  <p class="lede">This page you are reading was built with Claude, saved to GitHub, and published on Vercel in a few minutes. In week 6 you will do the same. Today you just need to know what the two services are.</p>
+  <div class="note"><b>Facilitator (1:40 to 1:50):</b> Demo only. Show the GitHub repo for this page and the Vercel dashboard. Explain the chain: Claude writes files, GitHub stores versions, Vercel publishes them. Set the account creation as homework so it does not eat lesson time. If both are confident and ahead, let them sign up now.</div>
+
+  <div class="diagram">
+    <div class="box"><b>Claude Code</b><span>Writes and edits the files for your site or tool.</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>GitHub</b><span>Stores every version of those files safely online. Free.</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>Vercel</b><span>Watches GitHub and puts the site live at a web address. Free for small sites.</span></div>
+  </div>
+
+  <h3>Homework steps (tick when done)</h3>
+  <ul class="checklist">
+    <li><input type="checkbox" id="c7a"><label for="c7a"><span class="ck-title">Create a GitHub account</span><span class="ck-sub"><a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>. Use your business email. Pick a simple username, it appears in web addresses.</span></label></li>
+    <li><input type="checkbox" id="c7b"><label for="c7b"><span class="ck-title">Create a Vercel account</span><span class="ck-sub"><a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a>, choose "Continue with GitHub". This links the two so publishing is one click later.</span></label></li>
+    <li><input type="checkbox" id="c7c"><label for="c7c"><span class="ck-title">Optional: ElevenLabs account for voice and audio</span><span class="ck-sub"><a href="https://elevenlabs.io" target="_blank" rel="noopener">elevenlabs.io</a>. Only if you make videos, ads, or voice content. We use it in week 4.</span></label></li>
+  </ul>
+  <div class="row">
+    <div><label class="f" for="ghUser">GitHub username (once created)</label><input type="text" id="ghUser"></div>
+    <div><label class="f" for="siteIdea">If you could publish one simple page or tool, what would it be?</label><input type="text" id="siteIdea" placeholder="e.g. a booking enquiry form, a price calculator"></div>
+  </div>
+</section>
+
+<!-- 8 USE CASES -->
+<section class="step" id="s8" data-step="8">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 8</div>
+  <h2>Your use cases</h2>
+  <p class="lede">Add every task where AI might help. Do not filter yet. The page ranks them for you by how often they happen, how long they take, and how much you dislike them.</p>
+  <div class="note"><b>Facilitator (1:50 to 2:05):</b> Aim for five to eight cards each. Prompt with categories: writing, admin, customers, marketing, numbers, research, scheduling. The ranking is a conversation starter, not a verdict. Agree the top three with each person and note them in Section 10.</div>
+
+  <div class="cards" id="useCases"></div>
+  <div class="btnrow"><button class="btn" id="addUseCase">+ Add a use case</button></div>
+
+  <h3>Ranked by likely payoff</h3>
+  <ol class="ranked" id="ranked"><li class="muted">Add use cases above to see them ranked.</li></ol>
+</section>
+
+<!-- 9 LEARN -->
+<section class="step" id="s9" data-step="9">
+  <span class="step-time">5 min</span>
+  <div class="step-kicker">Section 9</div>
+  <h2>What you want to learn</h2>
+  <p class="lede">Tick everything that interests you. We will shape weeks 2 to 8 around the overlap between you both, with individual homework where you differ.</p>
+  <ul class="learn-grid" id="learnList">
+    <li><input type="checkbox" data-learn="Writing better prompts and instructions"><span>Writing better prompts and instructions<span class="wk">Week 2</span></span></li>
+    <li><input type="checkbox" data-learn="Using Claude with my Drive documents"><span>Using Claude with my Drive documents<span class="wk">Week 3</span></span></li>
+    <li><input type="checkbox" data-learn="Spreadsheets, numbers and reports"><span>Spreadsheets, numbers and reports<span class="wk">Week 3</span></span></li>
+    <li><input type="checkbox" data-learn="Social media and marketing content"><span>Social media and marketing content<span class="wk">Week 4</span></span></li>
+    <li><input type="checkbox" data-learn="Images, video and voice generation"><span>Images, video and voice generation<span class="wk">Week 4</span></span></li>
+    <li><input type="checkbox" data-learn="Automating a repetitive task"><span>Automating a repetitive task<span class="wk">Week 5</span></span></li>
+    <li><input type="checkbox" data-learn="Connecting email, calendar and other tools"><span>Connecting email, calendar and other tools<span class="wk">Week 5</span></span></li>
+    <li><input type="checkbox" data-learn="Building a simple website or landing page"><span>Building a simple website or landing page<span class="wk">Week 6</span></span></li>
+    <li><input type="checkbox" data-learn="Building an internal tool or calculator"><span>Building an internal tool or calculator<span class="wk">Week 6</span></span></li>
+    <li><input type="checkbox" data-learn="Customer emails, quotes and follow-ups"><span>Customer emails, quotes and follow-ups<span class="wk">Week 7</span></span></li>
+    <li><input type="checkbox" data-learn="Customer support and FAQ assistant"><span>Customer support and FAQ assistant<span class="wk">Week 7</span></span></li>
+    <li><input type="checkbox" data-learn="Research and competitor analysis"><span>Research and competitor analysis<span class="wk">Any week</span></span></li>
+    <li><input type="checkbox" data-learn="Privacy, security and what not to share"><span>Privacy, security and what not to share<span class="wk">Ongoing</span></span></li>
+    <li><input type="checkbox" data-learn="Costs, plans and staying in budget"><span>Costs, plans and staying in budget<span class="wk">Ongoing</span></span></li>
+    <li><input type="checkbox" data-learn="Training my team to use AI"><span>Training my team to use AI<span class="wk">Week 8</span></span></li>
+    <li><input type="checkbox" data-learn="Writing an AI policy for my business"><span>Writing an AI policy for my business<span class="wk">Week 8</span></span></li>
+  </ul>
+  <label class="f" for="learnOther">Anything else you want covered?</label>
+  <textarea id="learnOther"></textarea>
+</section>
+
+<!-- 10 OUTCOMES -->
+<section class="step" id="s10" data-step="10">
+  <span class="step-time">10 min</span>
+  <div class="step-kicker">Section 10</div>
+  <h2>Outcomes</h2>
+  <p class="lede">By week 8, what has to be true for this course to have been worth your time? Be concrete. "Save four hours a week on admin" beats "understand AI".</p>
+  <div class="note"><b>Facilitator (2:05 to 2:15):</b> Push for measurable outcomes. Tie each to a use case from Section 8. Agree the top three use cases here and write them in. Ask each person how they will know it worked, and what would make them stop using the tools.</div>
+
+  <label class="f" for="out1">Outcome 1</label><input type="text" id="out1">
+  <label class="f" for="out2">Outcome 2</label><input type="text" id="out2">
+  <label class="f" for="out3">Outcome 3</label><input type="text" id="out3">
+  <label class="f" for="successMeasure">How will you know it worked? <span class="hint">Hours saved, money earned, tasks removed, stress reduced. Pick a number if you can.</span></label>
+  <textarea id="successMeasure"></textarea>
+  <label class="f" for="top3">The three use cases we agreed to build first <span class="hint">From Section 8, after discussion.</span></label>
+  <textarea id="top3"></textarea>
+  <label class="f" for="worries">What worries you about using AI in the business?</label>
+  <textarea id="worries"></textarea>
+  <label class="f" for="hoursPerWeek">Hours a week you can commit to practice between lessons</label>
+  <input type="number" id="hoursPerWeek" min="0" max="40" step="0.5">
+</section>
+
+<!-- 11 SAFETY -->
+<section class="step" id="s11" data-step="11">
+  <span class="step-time">5 min</span>
+  <div class="step-kicker">Section 11</div>
+  <h2>Safety and privacy</h2>
+  <p class="lede">Simple habits that keep you, your customers and your business out of trouble.</p>
+  <div class="note"><b>Facilitator (2:15 to 2:20):</b> Read the list together. The two points that matter most for small businesses: never paste passwords or card numbers, and treat AI output as a draft you sign off, not a fact you forward.</div>
+
+  <ul class="checklist">
+    <li><input type="checkbox" id="c11a"><label for="c11a"><span class="ck-title">Never paste passwords, card numbers, bank details or ID documents into any AI chat</span><span class="ck-sub">No exceptions. The AI does not need them and you cannot un-send them.</span></label></li>
+    <li><input type="checkbox" id="c11b"><label for="c11b"><span class="ck-title">Treat customer personal data with care</span><span class="ck-sub">Prefer anonymised examples ("a customer" not "Jane Smith, 12 High St"). Check what your privacy policy promises.</span></label></li>
+    <li><input type="checkbox" id="c11c"><label for="c11c"><span class="ck-title">AI output is a draft until you have read it</span><span class="ck-sub">It can be confidently wrong. Facts, prices, dates and legal points get checked by a human before they leave the building.</span></label></li>
+    <li><input type="checkbox" id="c11d"><label for="c11d"><span class="ck-title">Legal, tax and medical answers are a starting point, not advice</span><span class="ck-sub">Use AI to prepare good questions for your accountant or lawyer, not to replace them.</span></label></li>
+    <li><input type="checkbox" id="c11e"><label for="c11e"><span class="ck-title">Know your data settings</span><span class="ck-sub">In Claude Settings, Privacy, check whether your chats may be used for training and choose what you are comfortable with.</span></label></li>
+    <li><input type="checkbox" id="c11f"><label for="c11f"><span class="ck-title">Use two-factor authentication on Google, Claude, GitHub and Vercel</span><span class="ck-sub">Connected accounts are only as safe as the weakest login.</span></label></li>
+  </ul>
+  <label class="f" for="sensitiveData">Sensitive data your business holds that should stay out of AI tools</label>
+  <textarea id="sensitiveData" placeholder="e.g. client medical notes, payroll, signed contracts"></textarea>
+</section>
+
+<!-- 12 HOMEWORK -->
+<section class="step" id="s12" data-step="12">
+  <span class="step-time">Before week 2</span>
+  <div class="step-kicker">Section 12</div>
+  <h2>Homework for this week</h2>
+  <p class="lede">Small and daily beats big and once. About twenty minutes a day.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="h1"><label for="h1"><span class="ck-title">Use Claude every working day for one real task</span><span class="ck-sub">An email, a list, a plan, a summary. Do it inside your project so the instructions apply.</span></label></li>
+    <li><input type="checkbox" id="h2"><label for="h2"><span class="ck-title">Ask Claude three questions about your own Drive documents</span><span class="ck-sub">Note where it was useful and where it got confused.</span></label></li>
+    <li><input type="checkbox" id="h3"><label for="h3"><span class="ck-title">Improve your project instructions once</span><span class="ck-sub">When an answer sounds wrong for you, add a line to the instructions so it does not happen again.</span></label></li>
+    <li><input type="checkbox" id="h4"><label for="h4"><span class="ck-title">Create your GitHub and Vercel accounts</span><span class="ck-sub">Section 7. Ten minutes.</span></label></li>
+    <li><input type="checkbox" id="h5"><label for="h5"><span class="ck-title">Keep a "moments" note</span><span class="ck-sub">Each time you think "I wish AI could do this", write it down. Bring the list to week 2.</span></label></li>
+  </ul>
+  <label class="f" for="homeworkNotes">Anything specific we agreed you would try</label>
+  <textarea id="homeworkNotes"></textarea>
+</section>
+
+<!-- SUMMARY -->
+<section class="step" id="summary" data-step="13">
+  <div class="step-kicker no-print">Complete Lesson 1</div>
+  <h2 class="no-print">Your Lesson 1 record</h2>
+  <p class="lede no-print">Everything you filled in and decided, on one page. Download the PDF and keep it. Bring it to week 2.</p>
+  <div class="note"><b>Facilitator (2:20 to 2:30):</b> Click "Refresh summary", scan it with each person, then "Download PDF" (choose Save as PDF in the print dialog). Ask them to also copy the text summary and paste it into their Claude project as a file called "Lesson 1 record". That seeds week 2.</div>
+  <div class="btnrow no-print">
+    <button class="btn secondary" id="refreshSummary">Refresh summary</button>
+    <button class="btn big" id="downloadPdf">Download PDF</button>
+    <button class="btn secondary" id="copySummary">Copy summary as text</button>
+  </div>
+  <div id="summaryBody"></div>
+  <div class="btnrow no-print" style="margin-top:2rem">
+    <button class="btn danger" id="resetAll">Clear all my answers</button>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="footer-actions no-print">
+  <span>Saved automatically in this browser · <span id="savedAt">not saved yet</span></span>
+  <button class="btn ghost" id="exportJson">Export my answers (backup)</button>
+  <label class="btn ghost" style="cursor:pointer">Import backup <input type="file" id="importJson" accept="application/json" hidden></label>
+</div>
+
+<script>
+(function(){
+  const STORE='ai-course-lesson1-v1';
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+  let state={fields:{},checks:{},useCases:[],learn:[],facilitator:false};
+
+  // ---------- persistence ----------
+  function load(){try{const raw=localStorage.getItem(STORE);if(raw)state=Object.assign(state,JSON.parse(raw));}catch(e){}}
+  function save(){try{localStorage.setItem(STORE,JSON.stringify(state));const d=new Date();$('#savedAt').textContent='saved '+d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});}catch(e){}updateProgress();}
+
+  function bindFields(){
+    $$('input[type=text],input[type=email],input[type=number],input[type=date],textarea,select').forEach(el=>{
+      const key=el.id||el.dataset.key; if(!key||el.closest('.card'))return;
+      if(state.fields[key]!==undefined)el.value=state.fields[key];
+      el.addEventListener('input',()=>{state.fields[key]=el.value;save();});
+      el.addEventListener('change',()=>{state.fields[key]=el.value;save();});
+    });
+    $$('input[type=radio]').forEach(el=>{
+      if(state.fields[el.name]===el.value)el.checked=true;
+      el.addEventListener('change',()=>{state.fields[el.name]=el.value;save();});
+    });
+    $$('.checklist input[type=checkbox]').forEach(el=>{
+      if(state.checks[el.id])el.checked=true;
+      el.addEventListener('change',()=>{state.checks[el.id]=el.checked;save();updateNav();});
+    });
+    $$('#learnList input[type=checkbox]').forEach(el=>{
+      const k=el.dataset.learn; if(state.learn.includes(k))el.checked=true;
+      el.addEventListener('change',()=>{state.learn=$$('#learnList input:checked').map(i=>i.dataset.learn);save();});
+    });
+    const ft=$('#facilitatorToggle'); ft.checked=!!state.facilitator; document.body.classList.toggle('facilitator',ft.checked);
+    ft.addEventListener('change',()=>{state.facilitator=ft.checked;document.body.classList.toggle('facilitator',ft.checked);save();});
+    if(!state.fields.lessonDate){const d=new Date();$('#lessonDate').value=d.toISOString().slice(0,10);state.fields.lessonDate=$('#lessonDate').value;}
+  }
+
+  // ---------- use cases ----------
+  const CATS=['Writing and emails','Admin and paperwork','Customers and sales','Marketing and social','Numbers and reports','Research','Scheduling and planning','Other'];
+  function ucCard(uc,i){
+    const opts=CATS.map(c=>`<option ${uc.cat===c?'selected':''}>${c}</option>`).join('');
+    const freq=['Daily','Several times a week','Weekly','Monthly','Occasionally'].map(f=>`<option ${uc.freq===f?'selected':''}>${f}</option>`).join('');
+    const scale=n=>[1,2,3,4,5].map(v=>`<label><input type="radio" name="${n}${i}" value="${v}" ${uc[n]==v?'checked':''}>${v}</label>`).join('');
+    return `<div class="card" data-i="${i}">
+      <div class="card-head"><h4>Use case ${i+1}</h4><button class="remove" data-remove="${i}">Remove</button></div>
+      <label class="f">What is the task?</label><input type="text" data-f="task" value="${esc(uc.task||'')}" placeholder="e.g. Writing follow-up emails after quotes">
+      <div class="row">
+        <div><label class="f">Category</label><select data-f="cat">${opts}</select></div>
+        <div><label class="f">How often?</label><select data-f="freq">${freq}</select></div>
+      </div>
+      <div class="row">
+        <div><label class="f">Minutes it takes each time</label><input type="number" data-f="mins" min="0" value="${esc(uc.mins||'')}" placeholder="e.g. 30"></div>
+        <div><label class="f">How much do you dislike it? <span class="hint">1 fine, 5 hate it</span></label><div class="scale">${scale('pain')}</div></div>
+      </div>
+      <label class="f">What would "done well by AI" look like?</label><input type="text" data-f="ideal" value="${esc(uc.ideal||'')}" placeholder="e.g. A draft in my voice that I tweak in one minute">
+      <div class="score">${scoreText(uc)}</div>
+    </div>`;
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+  const FREQ_N={'Daily':5,'Several times a week':3,'Weekly':1,'Monthly':0.25,'Occasionally':0.1};
+  function hoursPerWeek(uc){return ((FREQ_N[uc.freq]||0)*(parseFloat(uc.mins)||0))/60;}
+  function score(uc){return hoursPerWeek(uc)*(1+((parseInt(uc.pain)||3)-1)*0.35);}
+  function scoreText(uc){const h=hoursPerWeek(uc);return h?`About ${h.toFixed(1)} hours a week on this.`:'';}
+  function renderUseCases(){
+    const wrap=$('#useCases'); wrap.innerHTML=state.useCases.map(ucCard).join('');
+    wrap.querySelectorAll('.card').forEach(card=>{
+      const i=+card.dataset.i;
+      card.querySelectorAll('[data-f]').forEach(el=>{
+        const h=()=>{state.useCases[i][el.dataset.f]=el.value;save();renderRanked();card.querySelector('.score').textContent=scoreText(state.useCases[i]);};
+        el.addEventListener('input',h);el.addEventListener('change',h);
+      });
+      card.querySelectorAll('input[type=radio]').forEach(el=>el.addEventListener('change',()=>{state.useCases[i].pain=el.value;save();renderRanked();}));
+      card.querySelector('[data-remove]').addEventListener('click',()=>{state.useCases.splice(i,1);save();renderUseCases();});
+    });
+    renderRanked();
+  }
+  function renderRanked(){
+    const list=state.useCases.filter(u=>u.task).map(u=>({u,s:score(u)})).sort((a,b)=>b.s-a.s);
+    $('#ranked').innerHTML=list.length?list.map((x,i)=>`<li><span class="rank">${i+1}</span><span>${esc(x.u.task)}<br><span class="why">${x.u.freq||''}${x.u.mins?', '+x.u.mins+' min':''}${x.u.pain?', dislike '+x.u.pain+'/5':''}</span></span><span class="why">${hoursPerWeek(x.u)?hoursPerWeek(x.u).toFixed(1)+' h/wk':''}</span></li>`).join(''):'<li class="muted">Add use cases above to see them ranked.</li>';
+  }
+  $('#addUseCase').addEventListener('click',()=>{state.useCases.push({freq:'Weekly',pain:3});save();renderUseCases();window.scrollBy({top:200,behavior:'smooth'});});
+
+  // ---------- instructions generator ----------
+  function f(k){return (state.fields[k]||'').trim();}
+  function genInstructions(){
+    const lines=[];
+    lines.push(`# About ${f('bizName')||'my business'}`);
+    lines.push(`I am ${f('name')||'the owner'}${f('bizRole')?', '+f('bizRole'):''} of ${f('bizName')||'a small business'}. ${f('bizWhat')||'[Describe what the business does.]'}`);
+    if(f('bizCustomers'))lines.push(`Our customers are ${f('bizCustomers')}.`);
+    if(f('bizTeam'))lines.push(`Team size: ${f('bizTeam')}.`);
+    lines.push('');
+    lines.push('# How to work with me');
+    lines.push(`- Tone: ${f('tone')||'warm, plain and professional'}.`);
+    lines.push(`- Avoid: ${f('avoidWords')||'jargon, hype, exclamation marks'}.`);
+    lines.push(`- Defaults: ${f('defaults')||'short answers, plain English, ask one clarifying question if the request is unclear'}.`);
+    lines.push('- Never invent facts, prices, dates or names. If you do not know, say so.');
+    lines.push('- Legal, tax and financial points are suggestions for me to check with a professional, not advice.');
+    lines.push('- When drafting anything customer-facing, write it so I can send it with at most one small edit.');
+    lines.push('');
+    lines.push('# Context that helps');
+    if(f('bizTools'))lines.push(`- Tools we use: ${f('bizTools')}.`);
+    if(f('bizTime'))lines.push(`- Where my time goes: ${f('bizTime')}.`);
+    if(f('bizPain'))lines.push(`- Tasks I most want help with: ${f('bizPain')}.`);
+    lines.push('- Reference files in this project (price list, services, past emails) show our real voice and offers. Prefer them over guesses.');
+    $('#instructions').value=lines.join('\n'); state.fields.instructions=$('#instructions').value; save();
+  }
+  $('#genInstructions').addEventListener('click',genInstructions);
+  $('#copyInstructions').addEventListener('click',()=>copyText($('#instructions').value,$('#copyInstructions')));
+  function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{const o=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=o,1500);}).catch(()=>alert('Copy failed. Select the text and copy manually.'));}
+
+  // ---------- summary ----------
+  const CHECK_LABELS={};
+  $$('.checklist li').forEach(li=>{const i=li.querySelector('input');CHECK_LABELS[i.id]=li.querySelector('.ck-title').textContent;});
+  function ck(id){return state.checks[id]?'<span class="tick">✓</span> ':'<span class="cross">☐</span> ';}
+  function line(label,val){return val?`<dt>${label}</dt><dd>${esc(val).replace(/\n/g,'<br>')}</dd>`:'';}
+  function sectionChecks(ids,title){
+    return `<div class="sum-block"><h3>${title}</h3><ul style="list-style:none;padding:0">${ids.map(id=>`<li>${ck(id)}${esc(CHECK_LABELS[id]||id)}</li>`).join('')}</ul></div>`;
+  }
+  function fmtDate(s){if(!s)return new Date().toLocaleDateString();const d=new Date(s+'T00:00:00');return d.toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});}
+  function renderSummary(){
+    const ranked=state.useCases.filter(u=>u.task).map(u=>({u,s:score(u)})).sort((a,b)=>b.s-a.s);
+    const totalChecks=Object.keys(CHECK_LABELS).length, done=Object.keys(CHECK_LABELS).filter(k=>state.checks[k]).length;
+    const html=`
+      <div class="stamp"><div><div class="muted small">AI for Small Business · 8 week program</div><div class="big-name">Lesson 1 record: ${esc(f('name')||'Participant')}</div><div class="muted">${esc(f('bizName')||'')}</div></div>
+      <div class="date">${fmtDate(f('lessonDate'))}<br>Facilitator: ${esc(f('facilitator')||'')}<br>Generated ${new Date().toLocaleString()}</div></div>
+
+      <div class="sum-block"><h3>Business snapshot</h3><dl class="kv">
+        ${line('Business',f('bizName'))}${line('Role',f('bizRole'))}${line('What it does',f('bizWhat'))}${line('Customers',f('bizCustomers'))}${line('Team size',f('bizTeam'))}${line('Years running',f('bizYears'))}
+        ${line('Where time goes',f('bizTime'))}${line('Never again',f('bizPain'))}${line('Tools in use',f('bizTools'))}${line('AI so far',f('bizAI'))}${line('Tech comfort',f('techComfort')?f('techComfort')+' / 5':'')}
+      </dl></div>
+
+      <div class="sum-block"><h3>Decisions made today</h3><dl class="kv">
+        ${line('Main harness',f('harnessChoice'))}${line('Claude plan',f('planChoice'))}${line('Project created',f('projectName'))}${line('Default model and effort',f('defaultModel'))}
+        ${line('Drive test file',f('driveFile'))}${line('Other connectors to add',f('otherConnectors'))}${line('GitHub username',f('ghUser'))}${line('First page or tool idea',f('siteIdea'))}
+        ${line('Model vs harness, in my words',f('harnessQ'))}
+      </dl></div>
+
+      ${sectionChecks(['c3a','c3b','c3c','c3d','c3e'],'Set up Claude')}
+      ${sectionChecks(['c4a','c4b','c4c','c4d','c4e'],'Google Drive connector')}
+      ${sectionChecks(['c5a','c5b','c5c','c5d'],'Project and instructions')}
+      ${sectionChecks(['c7a','c7b','c7c'],'Publishing accounts (homework)')}
+      ${sectionChecks(['c11a','c11b','c11c','c11d','c11e','c11f'],'Safety and privacy habits')}
+
+      <div class="sum-block"><h3>Use cases, ranked</h3>${ranked.length?`<ol>${ranked.map(x=>`<li><b>${esc(x.u.task)}</b> <span class="muted small">(${x.u.cat||''}${x.u.freq?', '+x.u.freq:''}${x.u.mins?', '+x.u.mins+' min':''}${x.u.pain?', dislike '+x.u.pain+'/5':''}${hoursPerWeek(x.u)?', about '+hoursPerWeek(x.u).toFixed(1)+' h/week':''})</span>${x.u.ideal?'<br><span class="small">Done well: '+esc(x.u.ideal)+'</span>':''}</li>`).join('')}</ol>`:'<p class="muted">None recorded.</p>'}</div>
+
+      <div class="sum-block"><h3>Learning plan</h3>${state.learn.length?`<ul>${state.learn.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`:'<p class="muted">Nothing ticked yet.</p>'}${f('learnOther')?`<p><b>Also:</b> ${esc(f('learnOther'))}</p>`:''}</div>
+
+      <div class="sum-block"><h3>Outcomes by week 8</h3><ol>${['out1','out2','out3'].filter(k=>f(k)).map(k=>`<li>${esc(f(k))}</li>`).join('')||'<li class="muted">Not set</li>'}</ol><dl class="kv">
+        ${line('How we will know',f('successMeasure'))}${line('First three to build',f('top3'))}${line('Worries',f('worries'))}${line('Practice hours a week',f('hoursPerWeek'))}${line('Keep out of AI tools',f('sensitiveData'))}
+      </dl></div>
+
+      <div class="sum-block"><h3>Homework before week 2</h3><ul style="list-style:none;padding:0">${['h1','h2','h3','h4','h5'].map(id=>`<li>${ck(id)}${esc(CHECK_LABELS[id])}</li>`).join('')}</ul>${f('homeworkNotes')?`<p>${esc(f('homeworkNotes'))}</p>`:''}</div>
+
+      ${f('instructions')?`<div class="sum-block"><h3>Project instructions (as drafted)</h3><pre>${esc(f('instructions'))}</pre></div>`:''}
+
+      <p class="muted small">Checklist items completed: ${done} of ${totalChecks}. Lesson 1 of 8 complete.</p>`;
+    $('#summaryBody').innerHTML=html;
+  }
+  function summaryText(){
+    const el=document.createElement('div');el.innerHTML=$('#summaryBody').innerHTML;
+    el.querySelectorAll('dt').forEach(d=>d.textContent=d.textContent+': ');
+    el.querySelectorAll('h3').forEach(h=>h.textContent='\n## '+h.textContent+'\n');
+    el.querySelectorAll('li').forEach(l=>l.textContent='- '+l.textContent+'\n');
+    el.querySelectorAll('dd,p').forEach(l=>l.textContent=l.textContent+'\n');
+    return el.textContent.replace(/\n{3,}/g,'\n\n').trim();
+  }
+  $('#refreshSummary').addEventListener('click',renderSummary);
+  $('#copySummary').addEventListener('click',()=>{renderSummary();copyText(summaryText(),$('#copySummary'));});
+  $('#downloadPdf').addEventListener('click',()=>{
+    renderSummary(); document.body.classList.add('print-summary');
+    const t=document.title; document.title=`Lesson 1 record - ${f('name')||'participant'} - ${f('lessonDate')||''}`;
+    const cleanup=()=>{document.body.classList.remove('print-summary');document.title=t;window.removeEventListener('afterprint',cleanup);};
+    window.addEventListener('afterprint',cleanup); setTimeout(()=>window.print(),50); setTimeout(cleanup,60000);
+  });
+  $('#resetAll').addEventListener('click',()=>{if(confirm('Clear everything you have entered on this page? This cannot be undone.')){localStorage.removeItem(STORE);location.reload();}});
+
+  // ---------- backup ----------
+  $('#exportJson').addEventListener('click',()=>{
+    const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=`lesson1-${(f('name')||'answers').replace(/\s+/g,'-').toLowerCase()}.json`;a.click();
+  });
+  $('#importJson').addEventListener('change',e=>{
+    const file=e.target.files[0];if(!file)return;const r=new FileReader();
+    r.onload=()=>{try{const s=JSON.parse(r.result);localStorage.setItem(STORE,JSON.stringify(s));location.reload();}catch(err){alert('That file is not a valid backup.');}};r.readAsText(file);
+  });
+
+  // ---------- progress and nav ----------
+  const REQUIRED=['name','bizName','bizWhat','bizTime','out1','defaultModel','projectName'];
+  function updateProgress(){
+    const checks=Object.keys(CHECK_LABELS).filter(k=>!k.startsWith('pre')&&!k.startsWith('h'));
+    const cDone=checks.filter(k=>state.checks[k]).length;
+    const fDone=REQUIRED.filter(k=>f(k)).length;
+    const uc=Math.min(state.useCases.filter(u=>u.task).length,3);
+    const pct=Math.round(100*(cDone+fDone+uc+(state.learn.length?1:0))/(checks.length+REQUIRED.length+3+1));
+    $('#progressBar').style.width=pct+'%'; $('#progressLabel').textContent=pct+'% complete';
+  }
+  function updateNav(){
+    $$('section.step').forEach(sec=>{
+      const boxes=sec.querySelectorAll('.checklist input');
+      if(!boxes.length)return;
+      const all=Array.from(boxes).every(b=>b.checked);
+      const a=$(`nav.side a[href="#${sec.id}"]`); if(a)a.classList.toggle('done',all);
+    });
+  }
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(en.isIntersecting){$$('nav.side a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));}});
+  },{rootMargin:'-40% 0px -55% 0px'});
+  $$('section.step').forEach(s=>obs.observe(s));
+
+  // ---------- init ----------
+  load(); bindFields(); renderUseCases(); updateProgress(); updateNav(); renderSummary();
+})();
+</script>
+</body>
+</html>
