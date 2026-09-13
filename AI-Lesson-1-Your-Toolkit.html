@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI for Small Business · Lesson 1: Your Toolkit</title>
-<meta name="description" content="Lesson 1: set up your AI toolkit, capture your use cases, and build your learning plan.">
+<meta name="description" content="Lesson 1: set up your AI toolkit and pin down your goal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -199,14 +199,11 @@
     <li><a href="#s2"><span class="n">2</span>What an AI harness is</a></li>
     <li><a href="#s3"><span class="n">3</span>Set up Claude</a></li>
     <li><a href="#s4"><span class="n">4</span>Connectors: Google Drive</a></li>
-    <li><a href="#s5"><span class="n">5</span>Projects and instructions</a></li>
-    <li><a href="#s6"><span class="n">6</span>Choosing model and effort</a></li>
-    <li><a href="#s7"><span class="n">7</span>Publishing: GitHub and Vercel</a></li>
-    <li><a href="#s8"><span class="n">8</span>Your use cases</a></li>
-    <li><a href="#s9"><span class="n">9</span>What you want to learn</a></li>
-    <li><a href="#s10"><span class="n">10</span>Outcomes</a></li>
-    <li><a href="#s11"><span class="n">11</span>Safety and privacy</a></li>
-    <li><a href="#s12"><span class="n">12</span>Homework</a></li>
+    <li><a href="#s5"><span class="n">5</span>Your computer: local MCP</a></li>
+    <li><a href="#s6"><span class="n">6</span>Projects and instructions</a></li>
+    <li><a href="#s7"><span class="n">7</span>Choosing model and effort</a></li>
+    <li><a href="#s8"><span class="n">8</span>Publishing: GitHub and Vercel</a></li>
+    <li><a href="#s9"><span class="n">9</span>Hone in on your goal</a></li>
     <li><a href="#summary"><span class="n">✓</span>Complete Lesson 1</a></li>
   </ol>
 </nav>
@@ -217,13 +214,13 @@
 <section class="step" id="s0" data-step="0">
   <span class="step-time">10 min</span>
   <div class="step-kicker">Lesson 1 · Your toolkit</div>
-  <h1>Setting up AI for your business</h1>
-  <p class="lede">Over this program you will go from "I have heard of ChatGPT" to running parts of your business with AI tools you set up and control yourself. Today is about getting the tools in place and deciding, together, what we will build for you.</p>
+  <h1>Set up your AI toolkit</h1>
+  <p class="lede">Today has two jobs. First, get your AI tools installed, connected to your own documents, and tuned to your business. Second, pin down the one goal the rest of the program is built around for you.</p>
 
-  <div class="note"><b>Facilitator (0:00 to 0:10):</b> Introduce yourself briefly. Explain that this page is theirs: they fill it in as we go, it saves itself in their browser, and at the end it exports a dated PDF record. Ask them to open it on their own laptop now. Set the tone: no jargon without a definition, no question is too basic, and we stop for a break at the hour.</div>
+  <div class="note"><b>Facilitator (0:00 to 0:10):</b> Introduce yourself briefly. Explain that this page is theirs: they tick and fill as we go, it saves itself in their browser, and at the end it exports a dated PDF. Ask them to open it on their own laptop now. Set the tone: this is a setup session, not a lecture. Break at the hour.</div>
 
-  <h3>How the program works</h3>
-  <p>There is no fixed syllabus yet, on purpose. Today we set up the tools and collect what you actually need: the tasks that eat your time, what you want to learn, and what a good result looks like. The remaining lessons are then built around that, so nothing you learn is theoretical.</p>
+  <h3>How today runs</h3>
+  <p>Follow this page top to bottom. Sections 3 to 8 are the setup: tick each step as you complete it on your own laptop. Section 9 is where we narrow down your goal together. At the end you export a dated record of everything you set up and decided.</p>
 
   <div class="row">
     <div><label class="f" for="name">Your name</label><input type="text" id="name" placeholder="First and last name"></div>
@@ -237,11 +234,11 @@
 
 <!-- 1 YOUR BUSINESS -->
 <section class="step" id="s1" data-step="1">
-  <span class="step-time">15 min</span>
+  <span class="step-time">10 min</span>
   <div class="step-kicker">Section 1</div>
   <h2>Your business</h2>
-  <p class="lede">Everything we set up today should point at real work you do. So before any tools, tell us about the business.</p>
-  <div class="note"><b>Facilitator (0:10 to 0:25):</b> Give them five quiet minutes to type, then talk through each person's answers out loud. Listen for the tasks they say with a sigh. Those become the use cases in Section 8. Write down anything they mention that is repetitive, text heavy, or done weekly.</div>
+  <p class="lede">A few facts so the tools we set up today point at your real work. Section 6 turns these into your Claude project instructions.</p>
+  <div class="note"><b>Facilitator (0:10 to 0:20):</b> Also ask each person now: Mac or Windows? Keep this quick: five minutes typing, a minute each talking. Listen for the task they mention with a sigh. That is the likely goal for Section 9.</div>
 
   <div class="row">
     <div><label class="f" for="bizName">Business name</label><input type="text" id="bizName"></div>
@@ -249,27 +246,14 @@
   </div>
   <label class="f" for="bizWhat">What does the business do? <span class="hint">One or two sentences, as you would say it to a customer.</span></label>
   <textarea id="bizWhat"></textarea>
-  <div class="row3">
+  <div class="row">
     <div><label class="f" for="bizTeam">Team size</label><select id="bizTeam"><option value="">Choose</option><option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 to 50</option><option>50+</option></select></div>
     <div><label class="f" for="bizCustomers">Who are your customers?</label><input type="text" id="bizCustomers" placeholder="e.g. local families, other businesses"></div>
-    <div><label class="f" for="bizYears">Years running</label><input type="text" id="bizYears"></div>
   </div>
-  <label class="f" for="bizTime">Where does your week actually go? <span class="hint">List the tasks that eat the most time. Be honest about the boring ones.</span></label>
-  <textarea id="bizTime"></textarea>
-  <label class="f" for="bizPain">What do you wish you never had to do again?</label>
-  <textarea id="bizPain"></textarea>
-  <label class="f" for="bizTools">Tools you already use <span class="hint">Email, accounting, booking, spreadsheets, social media, website platform, anything.</span></label>
+  <label class="f" for="bizTools">Tools you already use <span class="hint">Email, accounting, booking, spreadsheets, social media, website platform. This decides which connectors we set up.</span></label>
   <textarea id="bizTools"></textarea>
-  <label class="f" for="bizAI">Have you used any AI tools before? What happened?</label>
-  <textarea id="bizAI"></textarea>
-  <label class="f">How comfortable are you with technology? <span class="hint">1 is "I call someone", 5 is "I set up my own website".</span></label>
-  <div class="scale" data-name="techComfort">
-    <label><input type="radio" name="techComfort" value="1">1<small>Nervous</small></label>
-    <label><input type="radio" name="techComfort" value="2">2</label>
-    <label><input type="radio" name="techComfort" value="3">3<small>Fine</small></label>
-    <label><input type="radio" name="techComfort" value="4">4</label>
-    <label><input type="radio" name="techComfort" value="5">5<small>Confident</small></label>
-  </div>
+  <label class="f" for="bizTime">Where does your week actually go? <span class="hint">The two or three tasks that eat the most time.</span></label>
+  <textarea id="bizTime"></textarea>
 </section>
 
 <!-- 2 HARNESS -->
@@ -310,8 +294,6 @@
     <dt>Effort / thinking</dt><dd>How long the model reasons before answering. More is slower, more careful, and costs more.</dd>
     <dt>Deploy</dt><dd>Putting a website or tool online so others can use it.</dd>
   </dl>
-  <label class="f" for="harnessQ">Write, in your own words, the difference between the model and the harness.</label>
-  <textarea id="harnessQ"></textarea>
 </section>
 
 <!-- 3 SET UP CLAUDE -->
@@ -348,7 +330,7 @@
   <div class="step-kicker">Section 4</div>
   <h2>Connectors: Google Drive</h2>
   <p class="lede">A connector is a permission slip. You tell Claude "you may look at my Drive", and from then on you can ask questions about your own documents without copying and pasting.</p>
-  <div class="note"><b>Facilitator (0:50 to 1:05, then BREAK at 1:05):</b> This is the moment of the lesson. Get one real file of theirs summarised by Claude before the break. Point out the Google consent screen and explain what "read only" means. If Drive is slow to index, ask them to search for a file by name first. After the break resume at Section 5.</div>
+  <div class="note"><b>Facilitator (0:50 to 1:05, then BREAK at 1:05):</b> This is the moment of the lesson. Get one real file of theirs summarised by Claude before the break. Point out the Google consent screen and explain what "read only" means. If Drive is slow to index, ask them to search for a file by name first. After the break resume at Section 5, the local MCP connector.</div>
 
   <h3>What a connector actually does</h3>
   <ul>
@@ -370,16 +352,63 @@
   <textarea id="driveFile"></textarea>
   <label class="f" for="otherConnectors">Other services you use that appear in the Connectors list</label>
   <input type="text" id="otherConnectors" placeholder="e.g. Gmail, Calendar, Canva, Stripe">
-  <div class="callout warn"><p><b>Take care.</b> Connecting Drive means anything in that Drive can be read into a conversation if you ask. If your Drive holds client records, payroll or contracts, we will talk in Section 11 about what to ask and what to keep out.</p></div>
+  <div class="callout warn"><p><b>Take care.</b> Connecting Drive means anything in that Drive can be read into a conversation if you ask. If your Drive holds client records, payroll or contracts, keep those out of your questions. Never paste passwords, card numbers or ID documents into any AI chat.</p></div>
 </section>
 
-<!-- 5 PROJECTS -->
+<!-- 5 LOCAL MCP -->
 <section class="step" id="s5" data-step="5">
   <span class="step-time">15 min</span>
   <div class="step-kicker">Section 5</div>
+  <h2>Your computer: a local MCP connector</h2>
+  <p class="lede">Google Drive lives in the cloud. Most of your work lives on your computer. An MCP server is a connector that runs on your own machine, so Claude can reach local things: folders, files, and apps such as Notes, Calendar or Mail.</p>
+  <div class="note"><b>Facilitator (1:15 to 1:30):</b> Ask Mac or Windows first and have them pick it below, the page shows only the matching steps. Demo from your own machine. Extension names in the directory change over time, so teach the pattern, not the name: Settings, Extensions, browse, install, allow. First test must be boring and safe: read a file from a folder they chose. Do not let anyone install something that controls the whole desktop today.</div>
+
+  <h3>What MCP means</h3>
+  <ul>
+    <li><b>MCP</b> stands for Model Context Protocol. It is the open standard that lets an AI harness plug into tools.</li>
+    <li>A <b>connector</b> (Section 4) is an MCP server someone else hosts, such as Google Drive.</li>
+    <li>A <b>desktop extension</b> is an MCP server that runs on your own computer, installed inside the Claude desktop app with one click.</li>
+    <li>It only reaches what you allow. You choose the folders, and Claude asks before it takes an action the first time.</li>
+  </ul>
+
+  <label class="f" for="osChoice">Which computer do you use?</label>
+  <select id="osChoice"><option value="">Choose</option><option value="mac">Mac</option><option value="win">Windows</option></select>
+
+  <div data-os="mac" hidden>
+  <h3>Mac setup</h3>
+  <ul class="checklist">
+    <li><input type="checkbox" id="m1"><label for="m1"><span class="ck-title">Open the Claude desktop app and go to Settings, then Extensions</span><span class="ck-sub">Claude menu, Settings, Extensions. If you do not see Extensions, update the app first.</span></label></li>
+    <li><input type="checkbox" id="m2"><label for="m2"><span class="ck-title">Browse the extension directory</span><span class="ck-sub">Click Browse extensions. Look for the Apple extension (Notes, Calendar, Reminders, Mail, Contacts) and the Filesystem extension.</span></label></li>
+    <li><input type="checkbox" id="m3"><label for="m3"><span class="ck-title">Install Filesystem and choose one folder</span><span class="ck-sub">Pick a work folder, not your whole home folder. You can add more later.</span></label></li>
+    <li><input type="checkbox" id="m4"><label for="m4"><span class="ck-title">Install the Apple extension and grant permissions</span><span class="ck-sub">macOS will ask for access to Notes, Calendar or Automation. Allow it in System Settings, Privacy and Security, if prompted.</span></label></li>
+    <li><input type="checkbox" id="m5"><label for="m5"><span class="ck-title">Test it</span><span class="ck-sub">New chat, make sure the extension is enabled in the tools menu, then ask: <code>List the files in my [folder name] folder and summarise the most recent one.</code> Then: <code>Create a note in Apple Notes called "AI ideas" with three bullet points from this conversation.</code></span></label></li>
+  </ul>
+  </div>
+
+  <div data-os="win" hidden>
+  <h3>Windows setup</h3>
+  <ul class="checklist">
+    <li><input type="checkbox" id="w1"><label for="w1"><span class="ck-title">Open the Claude desktop app and go to Settings, then Extensions</span><span class="ck-sub">Menu, Settings, Extensions. If you do not see Extensions, update the app first.</span></label></li>
+    <li><input type="checkbox" id="w2"><label for="w2"><span class="ck-title">Browse the extension directory</span><span class="ck-sub">Click Browse extensions. Start with the Filesystem extension.</span></label></li>
+    <li><input type="checkbox" id="w3"><label for="w3"><span class="ck-title">Install Filesystem and choose one folder</span><span class="ck-sub">Pick a work folder such as Documents\Business, not the whole drive. You can add more later.</span></label></li>
+    <li><input type="checkbox" id="w4"><label for="w4"><span class="ck-title">Optional: a Windows desktop extension</span><span class="ck-sub">Extensions that control Windows apps and windows exist (the facilitator will demo one). Powerful, so we install it together in a later lesson rather than today.</span></label></li>
+    <li><input type="checkbox" id="w5"><label for="w5"><span class="ck-title">Test it</span><span class="ck-sub">New chat, make sure the extension is enabled in the tools menu, then ask: <code>List the files in my [folder name] folder and summarise the most recent one.</code> Then: <code>Create a text file in that folder called ai-ideas.txt with three bullet points from this conversation.</code></span></label></li>
+  </ul>
+  </div>
+
+  <label class="f" for="mcpInstalled">Extensions you installed</label>
+  <input type="text" id="mcpInstalled" placeholder="e.g. Filesystem (Documents/Business), Apple">
+  <label class="f" for="mcpTest">What did the test do, and did it work?</label>
+  <textarea id="mcpTest"></textarea>
+</section>
+
+<!-- 6 PROJECTS -->
+<section class="step" id="s6" data-step="6">
+  <span class="step-time">15 min</span>
+  <div class="step-kicker">Section 6</div>
   <h2>Projects and standing instructions</h2>
   <p class="lede">A project is a folder inside Claude that remembers who you are. Its instructions are read before every conversation, so you stop repeating yourself. This is what people mean by "tuning the system prompt".</p>
-  <div class="note"><b>Facilitator (1:15 to 1:30):</b> Use the generator below. It drafts project instructions from their Section 1 answers. Have them copy it into a new project, then ask the same question they asked in Section 3 and compare the answers side by side. That contrast teaches the value of instructions better than any explanation.</div>
+  <div class="note"><b>Facilitator (1:30 to 1:45):</b> Use the generator below. It drafts project instructions from their Section 1 answers. Have them copy it into a new project, then ask the same question they asked in Section 3 and compare the answers side by side. That contrast teaches the value of instructions better than any explanation.</div>
 
   <h3>What good instructions contain</h3>
   <ol>
@@ -411,12 +440,12 @@
 </section>
 
 <!-- 6 MODEL AND EFFORT -->
-<section class="step" id="s6" data-step="6">
+<section class="step" id="s7" data-step="7">
   <span class="step-time">10 min</span>
-  <div class="step-kicker">Section 6</div>
+  <div class="step-kicker">Section 7</div>
   <h2>Choosing a model and how hard it thinks</h2>
   <p class="lede">You do not need the strongest model for everything. Match the tool to the job, the way you would not hire a barrister to proofread a flyer.</p>
-  <div class="note"><b>Facilitator (1:30 to 1:40):</b> Show the model picker at the top of a chat and the extended thinking toggle. Rule of thumb for them: Sonnet as the daily default, step up to Opus or Fable when the answer matters or the task is long and messy, step down to Haiku for quick reformatting. Do not go deeper than this today.</div>
+  <div class="note"><b>Facilitator (1:45 to 1:52):</b> Show the model picker at the top of a chat and the extended thinking toggle. Rule of thumb for them: Sonnet as the daily default, step up to Opus or Fable when the answer matters or the task is long and messy, step down to Haiku for quick reformatting. Do not go deeper than this today.</div>
 
   <div class="tablewrap"><table>
     <tr><th>Model</th><th>Think of it as</th><th>Use it for</th></tr>
@@ -445,12 +474,12 @@
 </section>
 
 <!-- 7 PUBLISHING -->
-<section class="step" id="s7" data-step="7">
+<section class="step" id="s8" data-step="8">
   <span class="step-time">10 min</span>
-  <div class="step-kicker">Section 7</div>
+  <div class="step-kicker">Section 8</div>
   <h2>Publishing: GitHub and Vercel</h2>
   <p class="lede">This page you are reading was built with Claude, saved to GitHub, and published on Vercel in a few minutes. Later in the program you will do the same. Today you just need to know what the two services are.</p>
-  <div class="note"><b>Facilitator (1:40 to 1:50):</b> Demo only. Show the GitHub repo for this page and the Vercel dashboard. Explain the chain: Claude writes files, GitHub stores versions, Vercel publishes them. Set the account creation as homework so it does not eat lesson time. If both are confident and ahead, let them sign up now.</div>
+  <div class="note"><b>Facilitator (1:52 to 2:00):</b> Demo only, keep it to eight minutes. Show the GitHub repo for this page and the Vercel dashboard. Explain the chain: Claude writes files, GitHub stores versions, Vercel publishes them. Set the account creation as homework so it does not eat lesson time. If both are confident and ahead, let them sign up now.</div>
 
   <div class="diagram">
     <div class="box"><b>Claude Code</b><span>Writes and edits the files for your site or tool.</span></div>
@@ -472,113 +501,42 @@
   </div>
 </section>
 
-<!-- 8 USE CASES -->
-<section class="step" id="s8" data-step="8">
-  <span class="step-time">15 min</span>
-  <div class="step-kicker">Section 8</div>
-  <h2>Your use cases</h2>
-  <p class="lede">Add every task where AI might help. Do not filter yet. The page ranks them for you by how often they happen, how long they take, and how much you dislike them.</p>
-  <div class="note"><b>Facilitator (1:50 to 2:05):</b> Aim for five to eight cards each. Prompt with categories: writing, admin, customers, marketing, numbers, research, scheduling. The ranking is a conversation starter, not a verdict. Agree the top three with each person and note them in Section 10.</div>
-
-  <div class="cards" id="useCases"></div>
-  <div class="btnrow"><button class="btn" id="addUseCase">+ Add a use case</button></div>
-
-  <h3>Ranked by likely payoff</h3>
-  <ol class="ranked" id="ranked"><li class="muted">Add use cases above to see them ranked.</li></ol>
-</section>
-
-<!-- 9 LEARN -->
+<!-- 8 GOAL -->
 <section class="step" id="s9" data-step="9">
-  <span class="step-time">5 min</span>
+  <span class="step-time">25 min</span>
   <div class="step-kicker">Section 9</div>
-  <h2>What you want to learn</h2>
-  <p class="lede">Tick everything that interests you. We will shape the rest of the program around the overlap between you both, with individual homework where you differ.</p>
-  <ul class="learn-grid" id="learnList">
-    <li><input type="checkbox" data-learn="Writing better prompts and instructions"><span>Writing better prompts and instructions</span></li>
-    <li><input type="checkbox" data-learn="Using Claude with my Drive documents"><span>Using Claude with my Drive documents</span></li>
-    <li><input type="checkbox" data-learn="Spreadsheets, numbers and reports"><span>Spreadsheets, numbers and reports</span></li>
-    <li><input type="checkbox" data-learn="Social media and marketing content"><span>Social media and marketing content</span></li>
-    <li><input type="checkbox" data-learn="Images, video and voice generation"><span>Images, video and voice generation</span></li>
-    <li><input type="checkbox" data-learn="Automating a repetitive task"><span>Automating a repetitive task</span></li>
-    <li><input type="checkbox" data-learn="Connecting email, calendar and other tools"><span>Connecting email, calendar and other tools</span></li>
-    <li><input type="checkbox" data-learn="Building a simple website or landing page"><span>Building a simple website or landing page</span></li>
-    <li><input type="checkbox" data-learn="Building an internal tool or calculator"><span>Building an internal tool or calculator</span></li>
-    <li><input type="checkbox" data-learn="Customer emails, quotes and follow-ups"><span>Customer emails, quotes and follow-ups</span></li>
-    <li><input type="checkbox" data-learn="Customer support and FAQ assistant"><span>Customer support and FAQ assistant</span></li>
-    <li><input type="checkbox" data-learn="Research and competitor analysis"><span>Research and competitor analysis</span></li>
-    <li><input type="checkbox" data-learn="Privacy, security and what not to share"><span>Privacy, security and what not to share</span></li>
-    <li><input type="checkbox" data-learn="Costs, plans and staying in budget"><span>Costs, plans and staying in budget</span></li>
-    <li><input type="checkbox" data-learn="Training my team to use AI"><span>Training my team to use AI</span></li>
-    <li><input type="checkbox" data-learn="Writing an AI policy for my business"><span>Writing an AI policy for my business</span></li>
-  </ul>
-  <label class="f" for="learnOther">Anything else you want covered?</label>
-  <textarea id="learnOther"></textarea>
-</section>
+  <h2>Hone in on your goal</h2>
+  <p class="lede">The rest of the program is built around one goal per person. Start broad: list the tasks you would hand to AI tomorrow if you could. Then narrow to the one that matters most.</p>
+  <div class="note"><b>Facilitator (2:00 to 2:25):</b> Step 1: three to six cards each, fast, no filtering. Prompt with: writing, admin, customers, marketing, numbers, scheduling. The ranking is a conversation starter. Step 2 is the real work: talk each person down to one goal that is specific, measurable, and reachable with the tools set up today. Write it in their words. This goal is what you plan the next lessons around.</div>
 
-<!-- 10 OUTCOMES -->
-<section class="step" id="s10" data-step="10">
-  <span class="step-time">10 min</span>
-  <div class="step-kicker">Section 10</div>
-  <h2>Outcomes</h2>
-  <p class="lede">By the end of the program, what has to be true for this course to have been worth your time? Be concrete. "Save four hours a week on admin" beats "understand AI".</p>
-  <div class="note"><b>Facilitator (2:05 to 2:15):</b> Push for measurable outcomes. Tie each to a use case from Section 8. Agree the top three use cases here and write them in. Ask each person how they will know it worked, and what would make them stop using the tools.</div>
+  <h3>Step 1: candidates</h3>
+  <div class="cards" id="useCases"></div>
+  <div class="btnrow"><button class="btn" id="addUseCase">+ Add a task</button></div>
+  <h4>Ranked by likely payoff</h4>
+  <ol class="ranked" id="ranked"><li class="muted">Add tasks above to see them ranked.</li></ol>
 
-  <label class="f" for="out1">Outcome 1</label><input type="text" id="out1">
-  <label class="f" for="out2">Outcome 2</label><input type="text" id="out2">
-  <label class="f" for="out3">Outcome 3</label><input type="text" id="out3">
-  <label class="f" for="successMeasure">How will you know it worked? <span class="hint">Hours saved, money earned, tasks removed, stress reduced. Pick a number if you can.</span></label>
-  <textarea id="successMeasure"></textarea>
-  <label class="f" for="top3">The three use cases we agreed to build first <span class="hint">From Section 8, after discussion.</span></label>
-  <textarea id="top3"></textarea>
-  <label class="f" for="worries">What worries you about using AI in the business?</label>
-  <textarea id="worries"></textarea>
-  <label class="f" for="hoursPerWeek">Hours a week you can commit to practice between lessons</label>
-  <input type="number" id="hoursPerWeek" min="0" max="40" step="0.5">
-</section>
-
-<!-- 11 SAFETY -->
-<section class="step" id="s11" data-step="11">
-  <span class="step-time">5 min</span>
-  <div class="step-kicker">Section 11</div>
-  <h2>Safety and privacy</h2>
-  <p class="lede">Simple habits that keep you, your customers and your business out of trouble.</p>
-  <div class="note"><b>Facilitator (2:15 to 2:20):</b> Read the list together. The two points that matter most for small businesses: never paste passwords or card numbers, and treat AI output as a draft you sign off, not a fact you forward.</div>
-
-  <ul class="checklist">
-    <li><input type="checkbox" id="c11a"><label for="c11a"><span class="ck-title">Never paste passwords, card numbers, bank details or ID documents into any AI chat</span><span class="ck-sub">No exceptions. The AI does not need them and you cannot un-send them.</span></label></li>
-    <li><input type="checkbox" id="c11b"><label for="c11b"><span class="ck-title">Treat customer personal data with care</span><span class="ck-sub">Prefer anonymised examples ("a customer" not "Jane Smith, 12 High St"). Check what your privacy policy promises.</span></label></li>
-    <li><input type="checkbox" id="c11c"><label for="c11c"><span class="ck-title">AI output is a draft until you have read it</span><span class="ck-sub">It can be confidently wrong. Facts, prices, dates and legal points get checked by a human before they leave the building.</span></label></li>
-    <li><input type="checkbox" id="c11d"><label for="c11d"><span class="ck-title">Legal, tax and medical answers are a starting point, not advice</span><span class="ck-sub">Use AI to prepare good questions for your accountant or lawyer, not to replace them.</span></label></li>
-    <li><input type="checkbox" id="c11e"><label for="c11e"><span class="ck-title">Know your data settings</span><span class="ck-sub">In Claude Settings, Privacy, check whether your chats may be used for training and choose what you are comfortable with.</span></label></li>
-    <li><input type="checkbox" id="c11f"><label for="c11f"><span class="ck-title">Use two-factor authentication on Google, Claude, GitHub and Vercel</span><span class="ck-sub">Connected accounts are only as safe as the weakest login.</span></label></li>
-  </ul>
-  <label class="f" for="sensitiveData">Sensitive data your business holds that should stay out of AI tools</label>
-  <textarea id="sensitiveData" placeholder="e.g. client medical notes, payroll, signed contracts"></textarea>
-</section>
-
-<!-- 12 HOMEWORK -->
-<section class="step" id="s12" data-step="12">
-  <span class="step-time">Before lesson 2</span>
-  <div class="step-kicker">Section 12</div>
-  <h2>Homework for this week</h2>
-  <p class="lede">Small and daily beats big and once. About twenty minutes a day.</p>
-  <ul class="checklist">
-    <li><input type="checkbox" id="h1"><label for="h1"><span class="ck-title">Use Claude every working day for one real task</span><span class="ck-sub">An email, a list, a plan, a summary. Do it inside your project so the instructions apply.</span></label></li>
-    <li><input type="checkbox" id="h2"><label for="h2"><span class="ck-title">Ask Claude three questions about your own Drive documents</span><span class="ck-sub">Note where it was useful and where it got confused.</span></label></li>
-    <li><input type="checkbox" id="h3"><label for="h3"><span class="ck-title">Improve your project instructions once</span><span class="ck-sub">When an answer sounds wrong for you, add a line to the instructions so it does not happen again.</span></label></li>
-    <li><input type="checkbox" id="h4"><label for="h4"><span class="ck-title">Create your GitHub and Vercel accounts</span><span class="ck-sub">Section 7. Ten minutes.</span></label></li>
-    <li><input type="checkbox" id="h5"><label for="h5"><span class="ck-title">Keep a "moments" note</span><span class="ck-sub">Each time you think "I wish AI could do this", write it down. Bring the list to lesson 2.</span></label></li>
-  </ul>
-  <label class="f" for="homeworkNotes">Anything specific we agreed you would try</label>
-  <textarea id="homeworkNotes"></textarea>
+  <h3>Step 2: choose one</h3>
+  <p>Pick the task where AI would give you back the most time or money soonest. Not the most exciting one, the most useful one.</p>
+  <label class="f" for="goal">My goal for this program <span class="hint">One sentence. "Get quotes out the same day using AI drafts" beats "use AI for sales".</span></label>
+  <textarea id="goal"></textarea>
+  <label class="f" for="goalDone">What does done look like? <span class="hint">Describe the moment you would know it is working.</span></label>
+  <textarea id="goalDone"></textarea>
+  <div class="row">
+    <div><label class="f" for="goalMeasure">How we will measure it <span class="hint">Hours saved a week, days faster, tasks removed.</span></label><input type="text" id="goalMeasure"></div>
+    <div><label class="f" for="goalCurrent">Where it stands today <span class="hint">The current number, so we can compare.</span></label><input type="text" id="goalCurrent"></div>
+  </div>
+  <label class="f" for="goalBlockers">What could get in the way? <span class="hint">Time, data you cannot share, a system that does not connect, a person who needs convincing.</span></label>
+  <textarea id="goalBlockers"></textarea>
+  <label class="f" for="goalNext">First step before next lesson <span class="hint">Agreed with the facilitator.</span></label>
+  <input type="text" id="goalNext">
 </section>
 
 <!-- SUMMARY -->
 <section class="step" id="summary" data-step="13">
   <div class="step-kicker no-print">Complete Lesson 1</div>
   <h2 class="no-print">Your Lesson 1 record</h2>
-  <p class="lede no-print">Everything you filled in and decided, on one page. Download the PDF and keep it. Bring it to lesson 2.</p>
-  <div class="note"><b>Facilitator (2:20 to 2:30):</b> Click "Refresh summary", scan it with each person, then "Download PDF" (choose Save as PDF in the print dialog). Ask them to also copy the text summary and paste it into their Claude project as a file called "Lesson 1 record". That seeds lesson 2.</div>
+  <p class="lede no-print">Everything you set up and decided, on one page. Download the PDF, keep it, and send a copy to your facilitator.</p>
+  <div class="note"><b>Facilitator (2:25 to 2:35):</b> Click "Refresh summary", read the goal back to each person and confirm it is the right one. Then "Download PDF" (choose Save as PDF). Ask them to email you the PDF and the backup file. The goal on that PDF is your brief for planning lesson 2.</div>
   <div class="btnrow no-print">
     <button class="btn secondary" id="refreshSummary">Refresh summary</button>
     <button class="btn big" id="downloadPdf">Download PDF</button>
@@ -623,10 +581,6 @@
     $$('.checklist input[type=checkbox]').forEach(el=>{
       if(state.checks[el.id])el.checked=true;
       el.addEventListener('change',()=>{state.checks[el.id]=el.checked;save();updateNav();});
-    });
-    $$('#learnList input[type=checkbox]').forEach(el=>{
-      const k=el.dataset.learn; if(state.learn.includes(k))el.checked=true;
-      el.addEventListener('change',()=>{state.learn=$$('#learnList input:checked').map(i=>i.dataset.learn);save();});
     });
     const ft=$('#facilitatorToggle'); ft.checked=!!state.facilitator; document.body.classList.toggle('facilitator',ft.checked);
     ft.addEventListener('change',()=>{state.facilitator=ft.checked;document.body.classList.toggle('facilitator',ft.checked);save();});
@@ -698,7 +652,7 @@
     lines.push('# Context that helps');
     if(f('bizTools'))lines.push(`- Tools we use: ${f('bizTools')}.`);
     if(f('bizTime'))lines.push(`- Where my time goes: ${f('bizTime')}.`);
-    if(f('bizPain'))lines.push(`- Tasks I most want help with: ${f('bizPain')}.`);
+    if(f('goal'))lines.push(`- My main goal for using AI: ${f('goal')}.`);
     lines.push('- Reference files in this project (price list, services, past emails) show our real voice and offers. Prefer them over guesses.');
     $('#instructions').value=lines.join('\n'); state.fields.instructions=$('#instructions').value; save();
   }
@@ -724,30 +678,25 @@
 
       <div class="sum-block"><h3>Business snapshot</h3><dl class="kv">
         ${line('Business',f('bizName'))}${line('Role',f('bizRole'))}${line('What it does',f('bizWhat'))}${line('Customers',f('bizCustomers'))}${line('Team size',f('bizTeam'))}${line('Years running',f('bizYears'))}
-        ${line('Where time goes',f('bizTime'))}${line('Never again',f('bizPain'))}${line('Tools in use',f('bizTools'))}${line('AI so far',f('bizAI'))}${line('Tech comfort',f('techComfort')?f('techComfort')+' / 5':'')}
+        ${line('Where time goes',f('bizTime'))}${line('Tools in use',f('bizTools'))}
       </dl></div>
 
       <div class="sum-block"><h3>Decisions made today</h3><dl class="kv">
         ${line('Main harness',f('harnessChoice'))}${line('Claude plan',f('planChoice'))}${line('Project created',f('projectName'))}${line('Default model and effort',f('defaultModel'))}
-        ${line('Drive test file',f('driveFile'))}${line('Other connectors to add',f('otherConnectors'))}${line('GitHub username',f('ghUser'))}${line('First page or tool idea',f('siteIdea'))}
-        ${line('Model vs harness, in my words',f('harnessQ'))}
+        ${line('Computer',f('osChoice')==='mac'?'Mac':f('osChoice')==='win'?'Windows':'')}${line('Local extensions installed',f('mcpInstalled'))}${line('Local test',f('mcpTest'))}${line('Drive test file',f('driveFile'))}${line('Other connectors to add',f('otherConnectors'))}${line('GitHub username',f('ghUser'))}${line('First page or tool idea',f('siteIdea'))}
       </dl></div>
 
       ${sectionChecks(['c3a','c3b','c3c','c3d','c3e'],'Set up Claude')}
       ${sectionChecks(['c4a','c4b','c4c','c4d','c4e'],'Google Drive connector')}
+      ${f('osChoice')==='mac'?sectionChecks(['m1','m2','m3','m4','m5'],'Local MCP connector (Mac)'):f('osChoice')==='win'?sectionChecks(['w1','w2','w3','w4','w5'],'Local MCP connector (Windows)'):''}
       ${sectionChecks(['c5a','c5b','c5c','c5d'],'Project and instructions')}
       ${sectionChecks(['c7a','c7b','c7c'],'Publishing accounts (homework)')}
-      ${sectionChecks(['c11a','c11b','c11c','c11d','c11e','c11f'],'Safety and privacy habits')}
 
-      <div class="sum-block"><h3>Use cases, ranked</h3>${ranked.length?`<ol>${ranked.map(x=>`<li><b>${esc(x.u.task)}</b> <span class="muted small">(${x.u.cat||''}${x.u.freq?', '+x.u.freq:''}${x.u.mins?', '+x.u.mins+' min':''}${x.u.pain?', dislike '+x.u.pain+'/5':''}${hoursPerWeek(x.u)?', about '+hoursPerWeek(x.u).toFixed(1)+' h/week':''})</span>${x.u.ideal?'<br><span class="small">Done well: '+esc(x.u.ideal)+'</span>':''}</li>`).join('')}</ol>`:'<p class="muted">None recorded.</p>'}</div>
+      <div class="sum-block"><h3>Candidate tasks, ranked</h3>${ranked.length?`<ol>${ranked.map(x=>`<li><b>${esc(x.u.task)}</b> <span class="muted small">(${x.u.cat||''}${x.u.freq?', '+x.u.freq:''}${x.u.mins?', '+x.u.mins+' min':''}${x.u.pain?', dislike '+x.u.pain+'/5':''}${hoursPerWeek(x.u)?', about '+hoursPerWeek(x.u).toFixed(1)+' h/week':''})</span>${x.u.ideal?'<br><span class="small">Done well: '+esc(x.u.ideal)+'</span>':''}</li>`).join('')}</ol>`:'<p class="muted">None recorded.</p>'}</div>
 
-      <div class="sum-block"><h3>Learning plan</h3>${state.learn.length?`<ul>${state.learn.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`:'<p class="muted">Nothing ticked yet.</p>'}${f('learnOther')?`<p><b>Also:</b> ${esc(f('learnOther'))}</p>`:''}</div>
-
-      <div class="sum-block"><h3>Outcomes by the end of the program</h3><ol>${['out1','out2','out3'].filter(k=>f(k)).map(k=>`<li>${esc(f(k))}</li>`).join('')||'<li class="muted">Not set</li>'}</ol><dl class="kv">
-        ${line('How we will know',f('successMeasure'))}${line('First three to build',f('top3'))}${line('Worries',f('worries'))}${line('Practice hours a week',f('hoursPerWeek'))}${line('Keep out of AI tools',f('sensitiveData'))}
+      <div class="sum-block"><h3>My goal for this program</h3>${f('goal')?`<p style="font-family:var(--serif);font-size:1.25rem"><b>${esc(f('goal'))}</b></p>`:'<p class="muted">Not set yet.</p>'}<dl class="kv">
+        ${line('Done looks like',f('goalDone'))}${line('Measured by',f('goalMeasure'))}${line('Where it stands today',f('goalCurrent'))}${line('Could get in the way',f('goalBlockers'))}${line('First step before next lesson',f('goalNext'))}
       </dl></div>
-
-      <div class="sum-block"><h3>Homework before lesson 2</h3><ul style="list-style:none;padding:0">${['h1','h2','h3','h4','h5'].map(id=>`<li>${ck(id)}${esc(CHECK_LABELS[id])}</li>`).join('')}</ul>${f('homeworkNotes')?`<p>${esc(f('homeworkNotes'))}</p>`:''}</div>
 
       ${f('instructions')?`<div class="sum-block"><h3>Project instructions (as drafted)</h3><pre>${esc(f('instructions'))}</pre></div>`:''}
 
@@ -783,13 +732,13 @@
   });
 
   // ---------- progress and nav ----------
-  const REQUIRED=['name','bizName','bizWhat','bizTime','out1','defaultModel','projectName'];
+  const REQUIRED=['name','bizName','bizWhat','bizTime','goal','goalMeasure','defaultModel','projectName'];
   function updateProgress(){
-    const checks=Object.keys(CHECK_LABELS).filter(k=>!k.startsWith('pre')&&!k.startsWith('h'));
+    const os=f('osChoice'); const checks=Object.keys(CHECK_LABELS).filter(k=>!(/^[mw]\d$/.test(k))||(os==='mac'&&k[0]==='m')||(os==='win'&&k[0]==='w'));
     const cDone=checks.filter(k=>state.checks[k]).length;
     const fDone=REQUIRED.filter(k=>f(k)).length;
     const uc=Math.min(state.useCases.filter(u=>u.task).length,3);
-    const pct=Math.round(100*(cDone+fDone+uc+(state.learn.length?1:0))/(checks.length+REQUIRED.length+3+1));
+    const pct=Math.round(100*(cDone+fDone+uc)/(checks.length+REQUIRED.length+3));
     $('#progressBar').style.width=pct+'%'; $('#progressLabel').textContent=pct+'% complete';
   }
   function updateNav(){
@@ -805,8 +754,12 @@
   },{rootMargin:'-40% 0px -55% 0px'});
   $$('section.step').forEach(s=>obs.observe(s));
 
+  // ---------- OS toggle ----------
+  function applyOs(){const v=f('osChoice');$$('[data-os]').forEach(d=>d.hidden=(d.dataset.os!==v));updateProgress();}
+  $('#osChoice').addEventListener('change',applyOs);
+
   // ---------- init ----------
-  load(); bindFields(); renderUseCases(); updateProgress(); updateNav(); renderSummary();
+  load(); bindFields(); applyOs(); renderUseCases(); updateProgress(); updateNav(); renderSummary();
 })();
 </script>
 </body>
